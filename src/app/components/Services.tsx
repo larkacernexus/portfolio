@@ -7,30 +7,30 @@ export default function Services() {
   const services = [
     {
       icon: FaServer,
-      title: 'Digital Product Development',
-      description: 'Engineering bespoke digital infrastructure. Full-stack applications designed for global scale.',
-      features: ['Full-stack custom apps', 'Enterprise platforms', 'API-first design'],
+      title: 'Full-Stack Development',
+      description: 'Building complete web applications from frontend to backend with modern frameworks and best practices.',
+      features: ['React / Vue', 'Node.js / Laravel', 'API Development'],
       color: '#6366f1'
     },
     {
       icon: FaUsers,
-      title: 'Digital Workforce Solutions',
-      description: 'Direct integration of elite Filipino engineering talent into your internal workflows.',
-      features: ['Dedicated engineering pods', 'L3 support units', 'Seamless workflow sync'],
+      title: 'Team Leadership',
+      description: 'Leading engineering teams to deliver high-quality software solutions on time and within scope.',
+      features: ['Agile/Scrum', 'Code Reviews', 'Mentorship'],
       color: '#8b5cf6'
     },
     {
       icon: FaRocket,
-      title: 'Technology Transformation',
-      description: 'Modernizing legacy systems with surgical precision. Bridging technical debt and future-readiness.',
-      features: ['Legacy migration', 'Cloud-native optimization', 'Security audits'],
+      title: 'System Architecture',
+      description: 'Designing scalable, maintainable system architectures that grow with your business needs.',
+      features: ['Microservices', 'Cloud Infrastructure', 'Performance Optimization'],
       color: '#ec4899'
     },
     {
       icon: FaShieldAlt,
-      title: 'Continuous Engineering',
-      description: '24/7 system integrity with persistent monitoring and iterative improvement.',
-      features: ['24/7 telemetry', 'Proactive patches', 'Strategic consulting'],
+      title: 'AI & Automation',
+      description: 'Integrating AI-powered solutions and automating workflows to increase efficiency and reduce manual work.',
+      features: ['AI Integration', 'Workflow Automation', 'Process Optimization'],
       color: '#06b6d4'
     }
   ];
@@ -49,17 +49,23 @@ export default function Services() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <span className="inline-block text-sm font-medium px-4 py-1.5 mb-4 border" style={{ 
-              color: 'var(--text-secondary)',
-              borderColor: 'var(--border-color)'
-            }}>
-              ⚡ Larkacer Nexus
-            </span>
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: 'var(--text-primary)' }}>
-              Precision <span className="gradient-text">Digital Solutions</span>
+              What I <span className="gradient-text">Do</span>
             </h2>
-            <p className="max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-              Premium IT infrastructure and dedicated engineering teams from the top 1% of technical talent.
+            <p className="max-w-2xl mx-auto text-sm" style={{ color: 'var(--text-secondary)' }}>
+              Building systems, leading teams, and solving problems with code.
+            </p>
+            <p className="max-w-2xl mx-auto text-xs mt-2" style={{ color: 'var(--text-muted)' }}>
+              Founder & Lead Architect at{' '}
+              <a 
+                href="https://www.larkacer-nexus.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:underline font-medium"
+                style={{ color: 'var(--text-secondary)' }}
+              >
+                Larkacer Nexus
+              </a>
             </p>
           </motion.div>
         </div>
@@ -68,7 +74,11 @@ export default function Services() {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="card-modern p-8 group"
+              className="p-8 border transition-all duration-300 hover:border-indigo-500/30"
+              style={{ 
+                background: 'var(--bg-card)',
+                borderColor: 'var(--border-color)'
+              }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
@@ -76,15 +86,15 @@ export default function Services() {
               whileHover={{ y: -4 }}
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className="p-3 flex-shrink-0" style={{ 
+                <div className="p-2.5 flex-shrink-0" style={{ 
                   background: `${service.color}15`,
                   border: `1px solid ${service.color}25`
                 }}>
-                  <service.icon className="w-6 h-6" style={{ color: service.color }} />
+                  <service.icon className="w-5 h-5" style={{ color: service.color }} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>{service.title}</h3>
-                  <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>{service.description}</p>
+                  <h3 className="text-base font-bold" style={{ color: 'var(--text-primary)' }}>{service.title}</h3>
+                  <p className="text-sm mt-1 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{service.description}</p>
                 </div>
               </div>
               
@@ -92,7 +102,7 @@ export default function Services() {
                 {service.features.map((feature, idx) => (
                   <span key={idx} className="text-xs px-3 py-1" style={{ 
                     color: 'var(--text-muted)',
-                    background: 'var(--bg-card)',
+                    background: 'var(--bg-primary)',
                     border: '1px solid var(--border-color)'
                   }}>
                     {feature}
@@ -103,6 +113,7 @@ export default function Services() {
           ))}
         </div>
 
+        {/* Link to Larkacer Nexus */}
         <motion.div
           className="text-center mt-12"
           initial={{ opacity: 0 }}
@@ -110,19 +121,20 @@ export default function Services() {
           transition={{ delay: 0.3 }}
           viewport={{ once: true }}
         >
+          <p className="text-xs mb-3" style={{ color: 'var(--text-muted)' }}>
+            Also leading engineering at
+          </p>
           <a
             href="https://www.larkacer-nexus.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 font-medium transition-all duration-300 hover:scale-105"
+            className="inline-block px-6 py-2.5 text-sm font-medium border transition-all duration-200 hover:opacity-70 hover:border-indigo-500/30"
             style={{ 
-              color: 'var(--text-primary)',
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border-color)'
+              color: 'var(--text-secondary)',
+              borderColor: 'var(--border-color)'
             }}
           >
-            <span>Visit Larkacer Nexus</span>
-            <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+            Larkacer Nexus →
           </a>
         </motion.div>
       </div>

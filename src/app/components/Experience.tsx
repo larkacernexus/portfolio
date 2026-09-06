@@ -15,8 +15,7 @@ export default function Experience() {
         'Built Barangay Management System with digitized clearance and incident tracking',
         'Reduced manual workload by 50%+ through business management systems'
       ],
-      achievements: ['15+ Systems Built', 'Team Leadership', 'AI Integration'],
-      icon: '🚀'
+      achievements: ['15+ Systems Built', 'Team Leadership', 'AI Integration']
     },
     {
       title: 'Freelance Web Developer',
@@ -28,8 +27,7 @@ export default function Experience() {
         'Integrated frontend applications with backend services and APIs',
         'Provided ongoing troubleshooting and operational support to clients'
       ],
-      achievements: ['12+ Clients', 'Custom Solutions', 'Ongoing Support'],
-      icon: '💻'
+      achievements: ['12+ Clients', 'Custom Solutions', 'Ongoing Support']
     }
   ];
 
@@ -81,11 +79,8 @@ export default function Experience() {
               <div className="ml-8 card-modern p-8 group">
                 <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
                   <div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-3xl">{exp.icon}</span>
-                      <h3 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>{exp.title}</h3>
-                    </div>
-                    <div className="flex items-center gap-2" style={{ color: '#818cf8' }}>
+                    <h3 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>{exp.title}</h3>
+                    <div className="flex items-center gap-2 mt-1" style={{ color: '#818cf8' }}>
                       <FaBuilding className="w-4 h-4" />
                       <span className="font-medium">{exp.company}</span>
                     </div>

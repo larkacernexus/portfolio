@@ -1,36 +1,43 @@
 'use client';
 
-import { FaRobot, FaCode, FaDatabase, FaCloud, FaTools, FaShieldAlt } from 'react-icons/fa';
+import { 
+  SiTensorflow, SiReact, SiNextdotjs, SiTailwindcss, SiTypescript,
+  SiLaravel, SiNodedotjs, SiMysql, SiPostgresql, SiFastapi,
+  SiDocker, SiGit, SiLinux,
+  SiGooglecloud, SiFigma, SiJira, SiTrello,
+  SiCloudflare, SiPython, SiJavascript, SiPhp, SiVuedotjs
+} from 'react-icons/si';
+import { FaAws, FaShieldAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 export default function Skills() {
   const skillCategories = [
     {
-      icon: FaRobot,
+      icon: SiTensorflow,
       title: 'AI & Automation',
       skills: ['AI-Assisted Development', 'Workflow Automation', 'Prompt Engineering', 'AI Integration'],
       color: '#6366f1'
     },
     {
-      icon: FaCode,
+      icon: SiReact,
       title: 'Frontend Development',
       skills: ['ReactJS', 'VueJS', 'Next.js', 'Tailwind CSS', 'TypeScript'],
       color: '#06b6d4'
     },
     {
-      icon: FaDatabase,
+      icon: SiLaravel,
       title: 'Backend & Database',
       skills: ['PHP/Laravel', 'Node.js', 'MySQL', 'PostgreSQL', 'REST APIs'],
       color: '#10b981'
     },
     {
-      icon: FaCloud,
+      icon: FaAws,
       title: 'Cloud & DevOps',
       skills: ['AWS', 'Docker', 'Git/GitHub', 'CI/CD', 'Linux'],
       color: '#f59e0b'
     },
     {
-      icon: FaTools,
+      icon: SiGooglecloud,
       title: 'Tools & Workflows',
       skills: ['Google Apps Script', 'Figma', 'Agile/Scrum', 'Trello', 'Jira'],
       color: '#ec4899'
@@ -70,7 +77,11 @@ export default function Skills() {
           {skillCategories.map((category, index) => (
             <motion.div
               key={index}
-              className="card-modern p-6 group"
+              className="p-6 border transition-all duration-300 hover:border-indigo-500/30"
+              style={{ 
+                background: 'var(--bg-card)',
+                borderColor: 'var(--border-color)'
+              }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
@@ -79,19 +90,24 @@ export default function Skills() {
             >
               <div className="flex items-center gap-4 mb-4">
                 <div 
-                  className="p-3 rounded-xl transition-all duration-300 group-hover:scale-110"
-                  style={{ background: `${category.color}20` }}
+                  className="p-2.5 transition-all duration-300 group-hover:scale-110"
+                  style={{ background: `${category.color}15` }}
                 >
-                  <category.icon className="w-6 h-6" style={{ color: category.color }} />
+                  <category.icon className="w-5 h-5" style={{ color: category.color }} />
                 </div>
-                <h3 className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>{category.title}</h3>
+                <h3 className="text-base font-semibold" style={{ color: 'var(--text-primary)' }}>{category.title}</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, idx) => (
                   <motion.span
                     key={idx}
-                    className="tag-glow text-xs"
-                    whileHover={{ scale: 1.05 }}
+                    className="text-xs px-3 py-1 border transition-all duration-200 hover:border-indigo-500/30"
+                    style={{ 
+                      color: 'var(--text-muted)',
+                      borderColor: 'var(--border-color)',
+                      background: 'var(--bg-primary)'
+                    }}
+                    whileHover={{ scale: 1.02 }}
                   >
                     {skill}
                   </motion.span>
