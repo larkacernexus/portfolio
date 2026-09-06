@@ -4,6 +4,9 @@ import { ThemeProvider } from './context/ThemeContext';
 export const metadata: Metadata = {
   title: "Janndhelle Marth Zulueta · Portfolio",
   description: "AI Automation & Technical Systems Specialist Portfolio",
+  icons: {
+    icon: "/images/company_logo/landark.svg", // Or "/icon.svg" if placed directly in public/ or app/
+  },
 };
 
 export default function RootLayout({
@@ -14,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <link rel="icon" href="/images/company_logo/landark.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link 
