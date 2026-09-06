@@ -1,6 +1,6 @@
 'use client';
 
-import { FaBriefcase, FaCalendarAlt, FaBuilding, FaAward } from 'react-icons/fa';
+import { FaBriefcase, FaCalendarAlt, FaBuilding, FaAward, FaChalkboardTeacher, FaLaptop, FaGlobe } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 export default function Experience() {
@@ -15,7 +15,9 @@ export default function Experience() {
         'Built Barangay Management System with digitized clearance and incident tracking',
         'Reduced manual workload by 50%+ through business management systems'
       ],
-      achievements: ['15+ Systems Built', 'Team Leadership', 'AI Integration']
+      achievements: ['15+ Systems Built', 'Team Leadership', 'AI Integration'],
+      icon: FaBuilding,
+      iconColor: '#818cf8'
     },
     {
       title: 'Freelance Web Developer',
@@ -27,7 +29,37 @@ export default function Experience() {
         'Integrated frontend applications with backend services and APIs',
         'Provided ongoing troubleshooting and operational support to clients'
       ],
-      achievements: ['12+ Clients', 'Custom Solutions', 'Ongoing Support']
+      achievements: ['12+ Clients', 'Custom Solutions', 'Ongoing Support'],
+      icon: FaLaptop,
+      iconColor: '#10b981'
+    },
+    {
+      title: 'Part-Time Instructor',
+      company: 'Irene B. Antonio College',
+      period: 'Jan 2025 – May 2025',
+      description: [
+        'Taught web development and programming fundamentals to undergraduate students',
+        'Developed curriculum and learning materials for IT courses',
+        'Mentored students on real-world projects and industry practices',
+        'Conducted workshops on modern web technologies and frameworks'
+      ],
+      achievements: ['Curriculum Development', 'Student Mentorship', 'Workshop Facilitation'],
+      icon: FaChalkboardTeacher,
+      iconColor: '#f59e0b'
+    },
+    {
+      title: 'Web Administrator',
+      company: 'Central Bukidnon Institute (CBI)',
+      period: 'Aug 2024 – Aug 2025',
+      description: [
+        'Built and maintained the official website for Central Bukidnon Institute',
+        'Implemented responsive design and user-friendly interface',
+        'Managed content updates and site security',
+        'Provided technical support and training for staff'
+      ],
+      achievements: ['Full Website Development', 'Security Implementation', 'Staff Training'],
+      icon: FaGlobe,
+      iconColor: '#06b6d4'
     }
   ];
 
@@ -63,7 +95,7 @@ export default function Experience() {
               className="relative pl-8 pb-16 last:pb-0"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
+              transition={{ delay: index * 0.15, duration: 0.6 }}
               viewport={{ once: true }}
             >
               {/* Timeline line */}
@@ -76,18 +108,22 @@ export default function Experience() {
                 <div className="absolute inset-0 rounded-full animate-ping bg-indigo-400 opacity-50"></div>
               </div>
               
-              <div className="ml-8 card-modern p-8 group">
+              <div className="ml-8 p-8 border transition-all duration-300 hover:border-indigo-500/30" style={{ 
+                background: 'var(--bg-card)',
+                borderColor: 'var(--border-color)'
+              }}>
                 <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
                   <div>
-                    <h3 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>{exp.title}</h3>
-                    <div className="flex items-center gap-2 mt-1" style={{ color: '#818cf8' }}>
-                      <FaBuilding className="w-4 h-4" />
+                    <div className="flex items-center gap-3 mb-1">
+                      <exp.icon className="w-4 h-4" style={{ color: exp.iconColor }} />
+                      <h3 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>{exp.title}</h3>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                       <span className="font-medium">{exp.company}</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-sm px-4 py-2 rounded-full border" style={{ 
-                    color: 'var(--text-secondary)',
-                    background: 'var(--bg-card)',
+                  <div className="flex items-center gap-2 text-xs px-3 py-1.5 border" style={{ 
+                    color: 'var(--text-muted)',
                     borderColor: 'var(--border-color)'
                   }}>
                     <FaCalendarAlt className="w-3 h-3" />
@@ -95,7 +131,7 @@ export default function Experience() {
                   </div>
                 </div>
 
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-2 mb-5">
                   {exp.description.map((item, idx) => (
                     <motion.li 
                       key={idx} 
@@ -112,19 +148,19 @@ export default function Experience() {
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap gap-3 pt-4 border-t" style={{ borderColor: 'var(--border-color)' }}>
+                <div className="flex flex-wrap gap-2 pt-4 border-t" style={{ borderColor: 'var(--border-color)' }}>
                   {exp.achievements.map((achievement, idx) => (
                     <motion.span 
                       key={idx} 
-                      className="flex items-center gap-1.5 text-xs px-4 py-1.5 rounded-full font-medium border"
+                      className="flex items-center gap-1.5 text-xs px-3 py-1 border"
                       style={{
-                        background: 'rgba(99, 102, 241, 0.1)',
-                        color: '#818cf8',
-                        borderColor: 'rgba(99, 102, 241, 0.15)'
+                        color: 'var(--text-muted)',
+                        borderColor: 'var(--border-color)',
+                        background: 'var(--bg-primary)'
                       }}
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.02 }}
                     >
-                      <FaAward className="w-3 h-3" style={{ color: '#818cf8' }} />
+                      <FaAward className="w-3 h-3" style={{ color: exp.iconColor }} />
                       {achievement}
                     </motion.span>
                   ))}

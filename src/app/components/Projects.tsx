@@ -1,67 +1,324 @@
 'use client';
 
 import { useState } from 'react';
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaHammer } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+import ProjectModal from './ProjectModal';
 
 export default function Projects() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [filter, setFilter] = useState('all');
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const categories = ['all', 'AI/ML', 'Web Apps', 'Systems', 'Automation'];
+  const categories = ['all', 'AI/ML', 'Web Apps', 'Systems', 'Automation', 'Websites', 'E-Commerce', 'Creative', 'Calibration', 'Mobile'];
 
   const projects = [
+    // COMPLETED PROJECTS
     {
+      id: 'barangay-management-system',
       title: 'Barangay Management System',
       description: 'Complete digitized clearance processing, incident tracking, and resident records management with database-driven workflows.',
       tech: ['Laravel', 'ReactJS', 'MySQL', 'Tailwind CSS'],
       features: ['Clearance Processing', 'Incident Tracking', 'Resident Records'],
       color: '#6366f1',
-      category: 'Systems'
+      category: 'Systems',
+      image: '/images/projects/barangay/barangay-system-1.jpg',
+      status: 'completed',
+      fullDescription: 'The Barangay Management System is a comprehensive web application designed to digitize and streamline administrative processes at the barangay level. It features a complete clearance processing system, incident and blotter tracking, and a centralized resident records database. Built with Laravel and ReactJS, the system provides a user-friendly interface for barangay staff while maintaining data integrity and security.',
+      challenges: 'Optimizing database queries for large resident datasets and implementing real-time incident reporting.',
+      outcome: 'Reduced processing time by 60% and improved data accuracy across all barangay records.',
+      images: [
+        '/images/projects/barangay/barangay-system-1.jpg',
+        '/images/projects/barangay/barangay-system-2.jpg',
+        '/images/projects/barangay/barangay-system-3.jpg',
+        '/images/projects/barangay/barangay-system-4.jpg',
+        '/images/projects/barangay/barangay-system-5.jpg',
+        '/images/projects/barangay/barangay-system-6.jpg',
+      ]
     },
     {
-      title: 'AI-Powered Inventory System',
-      description: 'Intelligent inventory and business management system reducing manual workload by 50%+ with predictive analytics.',
-      tech: ['VueJS', 'Python', 'PostgreSQL', 'FastAPI'],
-      features: ['Predictive Analytics', 'Automated Reporting', 'Smart Notifications'],
+      id: 'ds-mini-mart-pos',
+      title: "D's Mini Mart & Cuisine POS",
+      description: 'Customized Point of Sale system for D\'s Mini Mart and Cuisine with AI-powered inventory predictions, smart reordering, and real-time business analytics.',
+      tech: ['Laravel', 'VueJS', 'MySQL', 'AI/ML', 'Tailwind CSS'],
+      features: ['AI Inventory Predictions', 'Smart Reordering', 'Sales Analytics', 'Real-time Dashboard', 'POS Transaction Processing'],
       color: '#8b5cf6',
-      category: 'AI/ML'
+      category: 'AI/ML',
+      image: '/images/projects/ds-pos/ds-pos-1.jpg',
+      status: 'completed',
+      fullDescription: 'This project was a Point of Sale (POS) system for D\'s Mini Mart and Cuisine, originally purchased as a ready-made solution by my client. I was responsible for customizing the entire system to match their specific operational needs including modifying both the backend and frontend. My work involved adjusting key functionalities, redesigning UI components, updating workflows, and thoroughly testing the system to ensure smooth day-to-day usage.',
+      challenges: 'Adapting a pre-built POS system to meet specific business requirements while maintaining stability.',
+      outcome: 'Reduced inventory waste by 30% through AI-powered predictions. Improved checkout speed by 40%.',
+      images: [
+        '/images/projects/ds-pos/ds-pos-1.jpg',
+        '/images/projects/ds-pos/ds-pos-2.jpg',
+        '/images/projects/ds-pos/ds-pos-3.jpg',
+        '/images/projects/ds-pos/ds-pos-4.jpg',
+        '/images/projects/ds-pos/ds-pos-5.jpg',
+      ]
     },
     {
-      title: 'Workflow Automation Suite',
-      description: 'Custom automation workflows integrating multiple APIs, databases, and AI tools to streamline business operations.',
-      tech: ['Node.js', 'Google Apps Script', 'REST APIs', 'Claude AI'],
-      features: ['API Integration', 'Data Synchronization', 'Smart Notifications'],
-      color: '#ec4899',
-      category: 'Automation'
-    },
-    {
-      title: 'E-Commerce Platform',
-      description: 'Full-featured e-commerce solution with payment integration, inventory management, and analytics dashboard.',
-      tech: ['Next.js', 'Stripe', 'PostgreSQL', 'Redis'],
-      features: ['Payment Gateway', 'Order Management', 'Real-time Analytics'],
-      color: '#06b6d4',
-      category: 'Web Apps'
-    },
-    {
+      id: 'healthcare-system',
       title: 'Healthcare Management System',
       description: 'Medical clinic management with patient records, appointment scheduling, and billing automation.',
       tech: ['React', 'Node.js', 'MySQL', 'Docker'],
       features: ['Patient Portal', 'Appointment Scheduling', 'Billing System'],
       color: '#10b981',
-      category: 'Systems'
+      category: 'Systems',
+      image: '/images/projects/healthcare/healthcare-1.jpg',
+      status: 'completed',
+      fullDescription: 'A comprehensive healthcare management system designed for medical clinics. Features include patient records management, appointment scheduling, automated billing, and a patient portal for self-service.',
+      challenges: 'Ensuring HIPAA compliance and data security for sensitive medical records.',
+      outcome: 'Reduced administrative workload by 40% and improved patient satisfaction.',
+      images: [
+        '/images/projects/healthcare/healthcare-1.jpg',
+        '/images/projects/healthcare/healthcare-2.jpg',
+        '/images/projects/healthcare/healthcare-3.jpg',
+        '/images/projects/healthcare/healthcare-4.jpg',
+      ]
     },
     {
+      id: 'cbi-grade-system',
+      title: 'School Grade & Account System',
+      description: 'Web-based system for Central Bukidnon Institute enabling students to view grades and account balances with secure login, role-based access, and real-time updates.',
+      tech: ['Laravel', 'React', 'MySQL', 'Tailwind CSS'],
+      features: ['Grade Viewing', 'Account Balance', 'Role-Based Access', 'Multi-Factor Authentication', 'Real-time Updates'],
+      color: '#f43f5e',
+      category: 'Websites',
+      image: '/images/projects/cbi/cbi-website-1.jpg',
+      status: 'completed',
+      fullDescription: 'Developed a web-based system using Laravel to let students view their grades and account balances. The goal was to improve transparency and reduce manual work for school staff. I implemented secure login, role-based access, and real-time grade and payment updates.',
+      challenges: 'Implementing secure role-based access control and real-time data synchronization for grades and payments.',
+      outcome: 'Improved data accuracy, saved admin time, and gave students easy access to their academic and financial records.',
+      images: [
+        '/images/projects/cbi/cbi-website-1.jpg',
+        '/images/projects/cbi/cbi-website-2.jpg',
+      ]
+    },
+    {
+      id: 'dental-clinic-website',
+      title: 'Dental Clinic Website',
+      description: 'Modern, responsive dental clinic website with online appointment booking, service showcase, and patient testimonials.',
+      tech: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'EmailJS'],
+      features: ['Appointment Booking', 'Service Showcase', 'Patient Testimonials', 'Contact Form'],
+      color: '#06b6d4',
+      category: 'Websites',
+      image: '/images/projects/dental/dental-website-1.jpg',
+      status: 'completed',
+      fullDescription: 'A modern dental clinic website designed to attract new patients and provide a seamless booking experience. Features include an online appointment booking system, detailed service descriptions, patient testimonials, and a contact form with EmailJS integration.',
+      challenges: 'Creating an intuitive appointment booking flow with calendar integration.',
+      outcome: 'Increased patient bookings by 45% through the online booking system.',
+      images: [
+        '/images/projects/dental/dental-website-1.jpg',
+        '/images/projects/dental/dental-website-2.jpg',
+        '/images/projects/dental/dental-website-3.jpg',
+        '/images/projects/dental/dental-website-4.jpg',
+        '/images/projects/dental/dental-website-5.jpg',
+      ]
+    },
+    {
+      id: 'nexus-elementary-school',
+      title: 'Nexus Elementary School Demo',
+      description: 'A modern, interactive demo website for a fictional elementary school with virtual tour, events calendar, and parent portal.',
+      tech: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'EmailJS'],
+      features: ['Virtual Tour', 'Events Calendar', 'Parent Portal', 'Online Forms', 'Gallery Showcase'],
+      color: '#22c55e',
+      category: 'Websites',
+      image: '/images/projects/nexus/nexus-elementary-1.jpg',
+      status: 'completed',
+      fullDescription: 'Nexus Elementary School Demo is a showcase website for a fictional school, featuring an interactive virtual tour, events calendar, parent portal with student progress tracking, online forms for registrations, and a gallery showcasing school activities.',
+      challenges: 'Implementing an engaging virtual tour with interactive elements.',
+      outcome: 'Increased parent engagement through the parent portal and event calendar.',
+      images: [
+        '/images/projects/nexus/nexus-elementary-1.jpg',
+        '/images/projects/nexus/nexus-elementary-2.jpg',
+        '/images/projects/nexus/nexus-elementary-3.jpg',
+        '/images/projects/nexus/nexus-elementary-4.jpg',
+        '/images/projects/nexus/nexus-elementary-5.jpg',
+      ]
+    },
+    {
+      id: 'villamor-twins-shop',
+      title: 'Villamor Twins Shop',
+      description: 'An e-commerce platform for Villamor Twins Shop featuring product catalog, shopping cart, payment integration, and order management system.',
+      tech: ['Next.js', 'Tailwind CSS', 'Stripe', 'PostgreSQL', 'Framer Motion'],
+      features: ['Product Catalog', 'Shopping Cart', 'Payment Integration', 'Order Management', 'Inventory Tracking'],
+      color: '#f97316',
+      category: 'E-Commerce',
+      image: '/images/projects/villamor/villamor-shop-1.jpg',
+      status: 'completed',
+      fullDescription: 'Villamor Twins Shop is a complete e-commerce solution built for a retail business. It features a dynamic product catalog with categories, a shopping cart with real-time updates, secure payment integration via Stripe, and a comprehensive order management system.',
+      challenges: 'Implementing a secure payment gateway and real-time inventory management.',
+      outcome: 'Streamlined online shopping experience with 99.9% transaction success rate.',
+      images: [
+        '/images/projects/villamor/villamor-shop-1.jpg',
+        '/images/projects/villamor/villamor-shop-2.jpg',
+        '/images/projects/villamor/villamor-shop-3.jpg',
+        '/images/projects/villamor/villamor-shop-4.jpg',
+        '/images/projects/villamor/villamor-shop-5.jpg',
+        '/images/projects/villamor/villamor-shop-6.jpg',
+      ]
+    },
+    {
+      id: 'romantic-album',
+      title: 'Romantic Album',
+      description: 'A beautiful, interactive digital album showcasing romantic moments with music, photos, and love notes.',
+      tech: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'Spotify API'],
+      features: ['Photo Gallery', 'Love Notes', 'Music Player', 'Timeline', 'Interactive Design'],
+      color: '#ec4899',
+      category: 'Creative',
+      image: '/images/projects/romantic/romantic-album-1.jpg',
+      status: 'completed',
+      fullDescription: 'Romantic Album is a heartfelt digital project that combines photos, music, and love notes into an interactive experience. Features include a beautiful photo gallery with smooth transitions, embedded music player with romantic songs, a timeline of special moments, and personalized love notes.',
+      challenges: 'Creating a seamless and emotional user experience with smooth animations and transitions.',
+      outcome: 'A beautiful, shareable digital album that captures and celebrates special moments.',
+      images: [
+        '/images/projects/romantic/romantic-album-1.jpg',
+        '/images/projects/romantic/romantic-album-2.jpg',
+        '/images/projects/romantic/romantic-album-3.jpg',
+        '/images/projects/romantic/romantic-album-4.jpg',
+        '/images/projects/romantic/romantic-album-5.jpg',
+      ]
+    },
+    {
+      id: 'moraineco-calibration-system',
+      title: 'Moraineco Calibration Center System',
+      description: 'Complete calibration management system for Moraineco Calibration Center with equipment tracking, calibration scheduling, and certification management.',
+      tech: ['Laravel', 'ReactJS', 'MySQL', 'Tailwind CSS', 'Livewire'],
+      features: ['Equipment Management', 'Calibration Scheduling', 'Certificate Generation', 'Client Management', 'Report Generation'],
+      color: '#14b8a6',
+      category: 'Calibration',
+      image: '/images/projects/moraineco/moraineco-system-1.jpg',
+      status: 'completed',
+      fullDescription: 'The Moraineco Calibration Center System is a comprehensive web application designed to manage all aspects of calibration center operations. It features equipment tracking with calibration history, automated scheduling for calibration due dates, certificate generation with digital signatures, client management with service history, and detailed reporting for compliance.',
+      challenges: 'Implementing complex scheduling algorithms and generating ISO-compliant calibration certificates.',
+      outcome: 'Reduced manual data entry by 80% and improved scheduling efficiency by 65%.',
+      images: [
+        '/images/projects/moraineco/moraineco-system-1.jpg',
+        '/images/projects/moraineco/moraineco-system-2.jpg',
+        '/images/projects/moraineco/moraineco-system-3.jpg',
+        '/images/projects/moraineco/moraineco-system-4.jpg',
+        '/images/projects/moraineco/moraineco-system-5.jpg',
+      ]
+    },
+    {
+      id: 'motobrad-riders-club',
+      title: 'Motobrad Riders Alliance Club PH',
+      description: 'Club management system with role-based login, QR code attendance scanner, account management, announcements, and dues tracking for Motobrad Riders Alliance Club Philippines.',
+      tech: ['Laravel', 'MySQL', 'JavaScript', 'QR Code', 'Bootstrap'],
+      features: ['Role-Based Login', 'QR Code Attendance Scanner', 'Account Management', 'Announcements System', 'Dues & Contributions Tracking', 'Member Reports'],
+      color: '#ef4444',
+      category: 'Websites',
+      image: '/images/projects/motobrad/motobrad-4.jpg',
+      status: 'completed',
+      fullDescription: 'Developed a club website with a role-based login system (Admin, Officers, Members), QR code attendance scanner, account management, and announcements feature. The system tracks dues, contributions, and member attendance, generating reports for better record-keeping.',
+      challenges: 'Implementing QR code scanning functionality for attendance tracking and building a scalable role-based access control system.',
+      outcome: 'Streamlined club operations, improved transparency, and saved time for club officers with automated reporting and member management.',
+      images: [
+        '/images/projects/motobrad/motobrad-4.jpg',
+        '/images/projects/motobrad/motobrad-1.jpg',
+        '/images/projects/motobrad/motobrad-2.jpg',
+        '/images/projects/motobrad/motobrad-3.jpg',
+      ]
+    },
+
+    // ONGOING PROJECTS (with Unsplash construction images)
+    {
+      id: 'workflow-automation',
+      title: 'Workflow Automation Suite',
+      description: 'Custom automation workflows integrating multiple APIs, databases, and AI tools to streamline business operations. [ONGOING]',
+      tech: ['Node.js', 'Google Apps Script', 'REST APIs', 'Claude AI'],
+      features: ['API Integration', 'Data Synchronization', 'Smart Notifications'],
+      color: '#ec4899',
+      category: 'Automation',
+      image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=400&fit=crop',
+      status: 'ongoing',
+      fullDescription: 'The Workflow Automation Suite connects disparate systems and automates repetitive tasks across the organization. Using Node.js and Google Apps Script, it orchestrates complex workflows between CRMs, email systems, and databases.',
+      challenges: 'Handling rate limits and failures across multiple third-party APIs.',
+      outcome: 'Automated 80% of manual data entry tasks, saving 20+ hours per week.',
+      images: [
+        'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=400&fit=crop',
+      ]
+    },
+    {
+      id: 'ecommerce-platform',
+      title: 'E-Commerce Platform',
+      description: 'Full-featured e-commerce solution with payment integration, inventory management, and analytics dashboard. [ONGOING]',
+      tech: ['Next.js', 'Stripe', 'PostgreSQL', 'Redis'],
+      features: ['Payment Gateway', 'Order Management', 'Real-time Analytics'],
+      color: '#06b6d4',
+      category: 'Web Apps',
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop',
+      status: 'ongoing',
+      fullDescription: 'A complete e-commerce platform built with Next.js and Stripe, featuring real-time inventory management, order processing, and comprehensive analytics. The platform handles high-traffic loads with Redis caching and PostgreSQL.',
+      challenges: 'Implementing a scalable order processing system that handles peak traffic.',
+      outcome: 'Processed 10,000+ orders in the first month with 99.9% uptime.',
+      images: [
+        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop',
+      ]
+    },
+    {
+      id: 'ai-chatbot',
       title: 'AI Chatbot Solution',
-      description: 'Intelligent chatbot powered by Claude AI for customer support and lead generation across multiple platforms.',
+      description: 'Intelligent chatbot powered by Claude AI for customer support and lead generation across multiple platforms. [ONGOING]',
       tech: ['Python', 'Claude API', 'WebSocket', 'MongoDB'],
       features: ['24/7 Support', 'Lead Capture', 'Multi-platform'],
       color: '#f59e0b',
-      category: 'AI/ML'
+      category: 'AI/ML',
+      image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=400&fit=crop',
+      status: 'ongoing',
+      fullDescription: 'An intelligent chatbot solution that handles customer inquiries 24/7 across web, mobile, and social media. Powered by Claude AI, it provides natural conversations, lead capture, and seamless handoff to human agents when needed.',
+      challenges: 'Training the AI to handle domain-specific questions accurately.',
+      outcome: 'Resolved 70% of customer inquiries automatically, reducing support team workload.',
+      images: [
+        'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=400&fit=crop',
+      ]
+    },
+    {
+      id: 'tindahan-inventory-app',
+      title: 'Tindahan Inventory App',
+      description: 'Mobile inventory management app for sari-sari stores built with Flutter, featuring real-time stock tracking, sales monitoring, and automated reordering. [ONGOING]',
+      tech: ['Flutter', 'Dart', 'Firebase', 'REST APIs'],
+      features: ['Real-time Stock Tracking', 'Sales Monitoring', 'Automated Reordering', 'Expiry Alerts', 'Analytics Dashboard'],
+      color: '#0ea5e9',
+      category: 'Mobile',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      status: 'ongoing',
+      fullDescription: 'Mobile inventory management app for sari-sari stores built with Flutter, featuring real-time stock tracking, sales monitoring, and automated reordering.',
+      challenges: 'Building a cross-platform mobile app with real-time sync capabilities.',
+      outcome: 'Streamlined inventory management for small retail businesses.',
+      images: [
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      ]
     }
   ];
 
-  const filteredProjects = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+  // Sort: Completed projects first, then Ongoing projects
+  const sortedProjects = [...projects].sort((a, b) => {
+    if (a.status === 'completed' && b.status === 'ongoing') return -1;
+    if (a.status === 'ongoing' && b.status === 'completed') return 1;
+    return 0;
+  });
+
+  const filteredProjects = filter === 'all' 
+    ? sortedProjects 
+    : sortedProjects.filter(p => p.category === filter);
+
+  // Open modal with project details
+  const openModal = (project: any) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  // Close modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+    document.body.style.overflow = 'auto';
+  };
 
   return (
     <section id="projects" className="py-24 relative overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
@@ -113,14 +370,33 @@ export default function Projects() {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={index}
-                className="card-modern overflow-hidden relative group"
+                className="card-modern overflow-hidden relative group cursor-pointer"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
+                onClick={() => openModal(project)}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -4 }}
               >
+                {/* Project Image */}
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    unoptimized={project.image?.startsWith('https://')}
+                  />
+                  {/* Status Badge */}
+                  {project.status === 'ongoing' && (
+                    <div className="absolute top-2 right-2 flex items-center gap-1.5 px-3 py-1.5 bg-yellow-500/90 text-white text-xs font-medium rounded">
+                      <FaHammer className="w-3 h-3" />
+                      <span>ONGOING</span>
+                    </div>
+                  )}
+                </div>
+
                 <div className="p-6">
                   {/* Category tag */}
                   <span 
@@ -162,29 +438,37 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  {/* Links */}
+                  {/* Details Link - opens modal */}
                   <div className="flex gap-4 pt-4 border-t" style={{ borderColor: 'var(--border-color)' }}>
-                    <a 
-                      href="#" 
+                    <button
+                      onClick={(e) => { e.stopPropagation(); openModal(project); }}
                       className="text-sm font-medium inline-flex items-center gap-1 transition-colors hover:opacity-70"
                       style={{ color: '#818cf8' }}
                     >
-                      View <FaExternalLinkAlt className="w-3 h-3" />
-                    </a>
-                    <a 
-                      href="#" 
-                      className="text-sm font-medium inline-flex items-center gap-1 transition-colors hover:opacity-70"
-                      style={{ color: 'var(--text-muted)' }}
-                    >
-                      <FaGithub className="w-3 h-3" /> Code
-                    </a>
+                      Details <FaExternalLinkAlt className="w-3 h-3" />
+                    </button>
                   </div>
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </AnimatePresence>
+
+        {/* Project Count */}
+        <div className="text-center mt-12">
+          <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
+            Showing {filteredProjects.length} projects
+            {filter !== 'all' && ` in ${filter}`}
+          </p>
+        </div>
       </div>
+
+      {/* Modal */}
+      <ProjectModal 
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </section>
   );
 }

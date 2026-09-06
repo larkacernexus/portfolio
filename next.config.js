@@ -2,9 +2,8 @@
 const nextConfig = {
   reactStrictMode: false,
   images: {
-    domains: ['images.unsplash.com', 'via.placeholder.com'],
+    domains: ['images.unsplash.com'],
   },
-  // Ignore TypeScript errors during build
   typescript: {
     ignoreBuildErrors: true,
   },
