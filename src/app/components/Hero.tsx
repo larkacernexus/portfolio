@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { FaGithub, FaLinkedin, FaTwitter, FaArrowDown } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaArrowDown, FaFacebook, FaInstagram } from 'react-icons/fa';
 import { EnvelopeIcon } from '@heroicons/react/24/outline';
 
 export default function Hero() {
@@ -62,10 +62,11 @@ export default function Hero() {
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center lg:justify-start mt-10 fade-in fade-in-delay-5">
-              <SocialLink icon={<FaGithub className="w-5 h-5" />} href="#" />
-              <SocialLink icon={<FaLinkedin className="w-5 h-5" />} href="#" />
-              <SocialLink icon={<FaTwitter className="w-5 h-5" />} href="#" />
-              <SocialLink icon={<EnvelopeIcon className="w-5 h-5" />} href="#" />
+              <SocialLink icon={<FaGithub className="w-5 h-5" />} href="https://github.com/larkacernexus" />
+              <SocialLink icon={<FaLinkedin className="w-5 h-5" />} href="https://www.linkedin.com/in/janndhelle-marth-zulueta" />
+              <SocialLink icon={<EnvelopeIcon className="w-5 h-5" />} href="mailto:zuluetajanndhellemarth@gmail.com" />
+              <SocialLink icon={<FaFacebook className="w-5 h-5" />} href="https://www.facebook.com/janndhellemarth.zulita.3/" />
+              <SocialLink icon={<FaInstagram className="w-5 h-5" />} href="https://www.instagram.com/jann_dhelle/" />
             </div>
           </div>
 

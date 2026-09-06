@@ -18,8 +18,7 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = ['Home', 'About', 'Skills', 'Projects', 'Experience', 'Contact'];
-
+  const navItems = ['Home', 'About', 'Services', 'Projects', 'Experience', 'Contact'];
   const isLight = theme === 'light';
 
   return (
@@ -33,16 +32,25 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
             <motion.span 
-              className="text-2xl font-black gradient-text"
+              className="text-xl font-black gradient-text"
               whileHover={{ scale: 1.05 }}
             >
               JMZ
             </motion.span>
-            <span className={`ml-2 text-sm hidden sm:inline ${isLight ? 'text-slate-500' : 'text-slate-500'}`}>
-              | Portfolio
+            <span className="hidden sm:block text-sm font-medium" style={{ color: 'var(--text-muted)' }}>
+              |
             </span>
+            <a 
+              href="https://www.larkacer-nexus.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hidden sm:block text-sm font-semibold hover:opacity-80 transition-opacity"
+              style={{ color: 'var(--text-secondary)' }}
+            >
+              ⚡ Larkacer Nexus
+            </a>
           </div>
           
           {/* Desktop Navigation */}
@@ -51,7 +59,7 @@ export default function Header() {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-white/5 ${
+                className={`px-4 py-2 text-sm font-medium transition-colors hover:bg-white/5 ${
                   isLight ? 'text-slate-600 hover:text-slate-900' : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -62,11 +70,15 @@ export default function Header() {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="ml-2 theme-toggle glass-light hover:scale-110 transition-transform"
+              className="ml-2 p-2 hover:scale-110 transition-transform"
+              style={{ 
+                background: 'var(--bg-card)',
+                border: '1px solid var(--border-color)'
+              }}
               aria-label="Toggle theme"
             >
               {isLight ? (
-                <MoonIcon className="w-5 h-5 text-slate-700" />
+                <MoonIcon className="w-5 h-5" style={{ color: 'var(--text-secondary)' }} />
               ) : (
                 <SunIcon className="w-5 h-5 text-yellow-400" />
               )}
@@ -74,7 +86,7 @@ export default function Header() {
             
             <a
               href="#contact"
-              className="ml-2 px-6 py-2 gradient-bg text-white rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25"
+              className="ml-2 px-6 py-2 gradient-bg text-white text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25"
             >
               Hire Me
             </a>
@@ -84,17 +96,17 @@ export default function Header() {
           <div className="flex items-center gap-2 md:hidden">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+              className="p-2 hover:bg-white/10 transition-colors"
               aria-label="Toggle theme"
             >
               {isLight ? (
-                <MoonIcon className="w-6 h-6 text-slate-700" />
+                <MoonIcon className="w-6 h-6" style={{ color: 'var(--text-secondary)' }} />
               ) : (
                 <SunIcon className="w-6 h-6 text-yellow-400" />
               )}
             </button>
             <button
-              className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+              className="p-2 hover:bg-white/10 transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (
@@ -120,7 +132,7 @@ export default function Header() {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className={`block px-4 py-3 text-sm font-medium transition-colors rounded-lg hover:bg-white/5 ${
+                className={`block px-4 py-3 text-sm font-medium transition-colors hover:bg-white/5 ${
                   isLight ? 'text-slate-600 hover:text-slate-900' : 'text-slate-300 hover:text-white'
                 }`}
                 onClick={() => setIsMenuOpen(false)}
@@ -129,8 +141,21 @@ export default function Header() {
               </a>
             ))}
             <a
+              href="https://www.larkacer-nexus.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block px-4 py-3 text-sm font-medium text-center border"
+              style={{ 
+                color: 'var(--text-secondary)',
+                borderColor: 'var(--border-color)'
+              }}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              ⚡ Larkacer Nexus
+            </a>
+            <a
               href="#contact"
-              className="block px-4 py-3 gradient-bg text-white rounded-lg text-sm font-medium text-center"
+              className="block px-4 py-3 gradient-bg text-white text-sm font-medium text-center"
               onClick={() => setIsMenuOpen(false)}
             >
               Hire Me

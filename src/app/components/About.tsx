@@ -26,11 +26,11 @@ export default function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: 'var(--text-primary)' }}>
               About <span className="gradient-text">Me</span>
             </h2>
             <p className="max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-              Passionate about leveraging AI and automation to solve real-world problems
+              AI Automation Specialist & Lead Systems Architect at Larkacer Nexus
             </p>
           </motion.div>
         </div>
@@ -45,15 +45,19 @@ export default function About() {
             <h3 className="text-3xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
               AI Automation & <span className="gradient-text-2">Systems Specialist</span>
             </h3>
-            <p className="leading-relaxed mb-6" style={{ color: 'var(--text-secondary)' }}>
+            <p className="leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
               With 3+ years of experience in implementing, troubleshooting, and optimizing 
               web-based systems, digital workflows, and client solutions. I specialize in 
               AI-assisted development, workflow automation, and system integrations.
             </p>
+            <p className="leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
+              As the <strong style={{ color: 'var(--text-primary)' }}>Lead Systems Architect at Larkacer Nexus</strong>, 
+              I lead a team of elite Filipino engineers delivering premium IT infrastructure 
+              and mission-critical systems to global enterprises.
+            </p>
             <p className="leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               I'm passionate about analyzing how applications, APIs, databases, and workflows 
-              connect, identifying root causes of technical issues, and implementing practical 
-              solutions for business and client needs.
+              connect, identifying root causes, and implementing practical solutions.
             </p>
             
             <div className="mt-8 flex flex-wrap gap-3">
@@ -64,13 +68,25 @@ export default function About() {
               <span className="tag-glow">Full-Stack Development</span>
             </div>
 
-            <a 
-              href="#contact" 
-              className="inline-flex items-center gap-2 mt-8 text-indigo-400 hover:text-indigo-300 transition-colors group"
-            >
-              <span>Let's work together</span>
-              <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-            </a>
+            <div className="mt-6 flex flex-wrap gap-4">
+              <a 
+                href="#contact" 
+                className="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors group"
+              >
+                <span>Let's work together</span>
+                <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a 
+                href="https://www.larkacer-nexus.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 transition-colors group"
+                style={{ color: 'var(--text-muted)' }}
+              >
+                <span>Visit Larkacer Nexus</span>
+                <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
           </motion.div>
 
           <motion.div
@@ -88,8 +104,8 @@ export default function About() {
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <div 
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3"
-                  style={{ background: `${stat.color}20` }}
+                  className="w-12 h-12 flex items-center justify-center mx-auto mb-3"
+                  style={{ background: `${stat.color}15`, border: `1px solid ${stat.color}25` }}
                 >
                   <stat.icon className="w-6 h-6" style={{ color: stat.color }} />
                 </div>
