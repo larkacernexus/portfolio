@@ -1,43 +1,30 @@
 'use client';
 
-import { 
-  SiTensorflow, SiReact, SiNextdotjs, SiTailwindcss, SiTypescript,
-  SiLaravel, SiNodedotjs, SiMysql, SiPostgresql, SiFastapi,
-  SiDocker, SiGit, SiLinux,
-  SiGooglecloud, SiFigma, SiJira, SiTrello,
-  SiCloudflare, SiPython, SiJavascript, SiPhp, SiVuedotjs
-} from 'react-icons/si';
-import { FaAws, FaShieldAlt } from 'react-icons/fa';
+import { FaRobot, FaCode, FaDatabase, FaCloud, FaTools, FaShieldAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 export default function Skills() {
   const skillCategories = [
     {
-      icon: SiTensorflow,
-      title: 'AI & Automation',
-      skills: ['AI-Assisted Development', 'Workflow Automation', 'Prompt Engineering', 'AI Integration'],
-      color: '#6366f1'
-    },
-    {
-      icon: SiReact,
+      icon: FaCode,
       title: 'Frontend Development',
       skills: ['ReactJS', 'VueJS', 'Next.js', 'Tailwind CSS', 'TypeScript'],
       color: '#06b6d4'
     },
     {
-      icon: SiLaravel,
+      icon: FaDatabase,
       title: 'Backend & Database',
       skills: ['PHP/Laravel', 'Node.js', 'MySQL', 'PostgreSQL', 'REST APIs'],
       color: '#10b981'
     },
     {
-      icon: FaAws,
-      title: 'Cloud & DevOps',
-      skills: ['AWS', 'Docker', 'Git/GitHub', 'CI/CD', 'Linux'],
+      icon: FaCloud,
+      title: 'DevOps & Tools',
+      skills: ['Git/GitHub', 'CI/CD', 'Basic Docker Knowledge', 'Linux Familiarity', 'AWS (Learning)'],
       color: '#f59e0b'
     },
     {
-      icon: SiGooglecloud,
+      icon: FaTools,
       title: 'Tools & Workflows',
       skills: ['Google Apps Script', 'Figma', 'Agile/Scrum', 'Trello', 'Jira'],
       color: '#ec4899'
@@ -47,6 +34,21 @@ export default function Skills() {
       title: 'System & Security',
       skills: ['System Architecture', 'Security Best Practices', 'Performance Optimization'],
       color: '#8b5cf6'
+    },
+    {
+      icon: FaRobot,
+      title: 'AI & Automation',
+      skills: [
+        'AI-Assisted Development',
+        'Workflow Automation',
+        'Prompt Engineering',
+        'AI Integration',
+        'Claude AI',
+        'ChatGPT',
+        'Gemini',
+        'DeepSeek'
+      ],
+      color: '#6366f1'
     }
   ];
 

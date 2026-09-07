@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nimbus & Co. · Premium Pet Essentials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+    :root {
+      --charcoal: #1A1410;
+      --amber: #C87A3A;
+      --olive: #7A8A5A;
+      --warm-cream: #FDF8F2;
+      --gold: #D4A84A;
+      --white: #ffffff;
+      --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--warm-cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+    h1, h2, h3, .serif {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .container { max-width:1280px; margin:0 auto; padding:0 5%; }
+
+    /* ---- STICKY NAV ---- */
+    .sticky-nav {
+      position: fixed; top: 0; left: 0; width: 100%; padding: 14px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+      background: rgba(253, 248, 242, 0.92); backdrop-filter: blur(16px);
+      border-bottom: 2px solid rgba(122, 138, 90, 0.06);
+      transition: var(--transition);
+    }
+    .nav-brand {
+      font-size: 1.4rem; font-weight: 700; color: var(--charcoal); display: flex; align-items: center; gap: 10px;
+      letter-spacing: 1px;
+    }
+    .nav-brand i { color: var(--amber); font-size: 1.2rem; }
+    .nav-links {
+      display: flex; gap: 28px; align-items: center;
+    }
+    .nav-links a {
+      color: var(--charcoal); text-decoration: none; font-weight: 400; font-size: 0.85rem;
+      transition: var(--transition); position: relative; letter-spacing: 0.5px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 50%; width: 0; height: 2px;
+      background: var(--amber); transition: var(--transition); transform: translateX(-50%);
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--amber); color: var(--white); padding: 10px 28px; border-radius: 50px;
+      font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: var(--transition);
+      letter-spacing: 0.5px; box-shadow: 0 4px 16px rgba(200, 122, 58, 0.1);
+    }
+    .nav-cta:hover { background: #b06a2a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200, 122, 58, 0.15); }
+    .nav-toggle { display: none; font-size: 1.4rem; color: var(--charcoal); cursor: pointer; background: none; border: none; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(253, 248, 242, 0.98); padding: 20px 5%; gap: 16px; border-bottom: 2px solid rgba(122, 138, 90, 0.06); }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: block; }
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 140px 5% 80px;
+      position: relative; isolation: isolate; overflow: hidden; background: var(--charcoal);
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0; z-index: -1;
+      background: radial-gradient(ellipse at 60% 30%, rgba(122, 138, 90, 0.06) 0%, transparent 70%);
+    }
+    .hero-video {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;
+      filter: brightness(0.35) saturate(0.6) contrast(1.1);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(26, 20, 16, 0.1) 0%, rgba(0,0,0,0.6) 90%);
+      z-index: -1;
+    }
+    .particle {
+      position: absolute; border-radius: 50%; opacity: 0.03; z-index: 0; pointer-events: none;
+      animation: floatParticle 25s infinite alternate ease-in-out;
+    }
+    .particle:nth-child(1) { width: 200px; height: 200px; top: 10%; right: 5%; background: var(--olive); animation-duration: 30s; }
+    .particle:nth-child(2) { width: 150px; height: 150px; bottom: 15%; left: 8%; background: var(--amber); animation-duration: 22s; }
+    .particle:nth-child(3) { width: 100px; height: 100px; top: 50%; left: 70%; background: var(--warm-cream); animation-duration: 28s; }
+    @keyframes floatParticle {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(40px, -60px) scale(1.1); }
+      66% { transform: translate(-30px, 40px) scale(0.9); }
+      100% { transform: translate(20px, -30px) scale(1.05); }
+    }
+
+    .hero-content { max-width: 780px; text-align: center; color: var(--white); animation: fadeUp 1.2s ease forwards; position: relative; z-index: 2; }
+    .hero-content .badge {
+      display: inline-block; background: rgba(122, 138, 90, 0.06); padding: 8px 28px; border-radius: 50px;
+      font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 4px;
+      color: var(--olive); border: 1px solid rgba(122, 138, 90, 0.06); margin-bottom: 28px;
+    }
+    .hero-content .accent-line {
+      width: 80px; height: 2px; background: var(--olive); margin: 0 auto 24px; opacity: 0.4;
+    }
+    .hero h1 { font-size: clamp(2.8rem, 8vw, 4.8rem); line-height: 1.05; margin-bottom: 16px; }
+    .hero h1 span { color: var(--amber); }
+    .hero p { font-size: clamp(1rem, 1.6vw, 1.35rem); color: rgba(255,255,255,0.6); max-width: 560px; margin: 0 auto 44px; font-weight: 300; }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--amber); color: var(--white); padding: 18px 48px; border-radius: 50px;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: var(--transition);
+      display: inline-flex; align-items: center; gap: 12px; letter-spacing: 0.5px;
+      box-shadow: 0 8px 32px rgba(200, 122, 58, 0.15);
+    }
+    .btn-primary:hover { background: #b06a2a; transform: translateY(-4px); box-shadow: 0 16px 44px rgba(200, 122, 58, 0.2); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.03); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.06);
+      color: #fff; padding: 18px 44px; border-radius: 50px; font-weight: 400; text-decoration: none; transition: var(--transition);
+      letter-spacing: 0.5px;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.06); transform: translateY(-4px); }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* ---- SOCIAL PROOF ---- */
+    .social-proof {
+      padding: 80px 5%; text-align: center; background: var(--warm-cream);
+      border-top: 2px solid rgba(122, 138, 90, 0.04);
+      border-bottom: 2px solid rgba(122, 138, 90, 0.04);
+      position: relative;
+    }
+    .social-proof::before {
+      content: '✦'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--olive); background: var(--warm-cream); padding: 0 16px;
+    }
+    .badge-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px 60px; margin-bottom: 44px; opacity: 0.4; }
+    .badge-row span { font-size: 0.7rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--charcoal); }
+    .badge-row i { color: var(--olive); margin-right: 8px; }
+    .quote-rotate { max-width: 720px; margin: 0 auto; }
+    .quote-rotate blockquote {
+      font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem;
+      color: var(--charcoal); line-height: 1.7;
+    }
+    .quote-rotate .author { margin-top: 16px; font-size: 0.9rem; color: var(--amber); font-weight: 500; letter-spacing: 1px; }
+
+    /* ---- STATS ---- */
+    .stats-section { padding: 60px 5%; background: var(--white); }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
+    .stat-item { text-align: center; padding: 24px; border-radius: 24px; background: var(--warm-cream); transition: var(--transition); }
+    .stat-item:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(26, 20, 16, 0.03); }
+    .stat-item .number { font-size: 2.6rem; font-weight: 700; color: var(--amber); font-family: 'Playfair Display', serif; }
+    .stat-item .label { font-size: 0.8rem; color: #5a4a3a; font-weight: 400; margin-top: 4px; }
+
+    /* ---- PRODUCTS ---- */
+    .products-section { padding: 120px 5%; background: var(--white); }
+    .section-title { text-align: center; font-size: clamp(2.2rem, 4.5vw, 3.4rem); margin-bottom: 12px; color: var(--charcoal); }
+    .section-title span { color: var(--amber); }
+    .section-sub { text-align: center; color: #5a5a4a; max-width: 500px; margin: 0 auto 60px; font-weight: 300; font-size: 1.05rem; }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 36px; max-width: 1200px; margin: 0 auto; }
+    .product-card {
+      border-radius: 32px; overflow: hidden; background: var(--warm-cream);
+      border: 1px solid rgba(26, 20, 16, 0.04); transition: var(--transition); text-align: center;
+    }
+    .product-card:hover { transform: translateY(-12px); border-color: rgba(122, 138, 90, 0.08); box-shadow: 0 24px 56px rgba(26, 20, 16, 0.04); }
+    .product-card img { width: 100%; height: 280px; object-fit: cover; display: block; transition: transform 0.7s ease; }
+    .product-card:hover img { transform: scale(1.04); }
+    .product-card-body { padding: 30px 28px 34px; }
+    .product-card-body h3 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.2rem; color: var(--charcoal); margin-bottom: 8px; }
+    .product-card-body p { color: #5a5a4a; font-size: 0.95rem; font-weight: 300; margin-bottom: 14px; }
+    .product-card-body .price { font-weight: 600; font-size: 1.3rem; color: var(--amber); }
+    .product-card-body .add-btn {
+      display: inline-block; margin-top: 14px; padding: 10px 32px; border-radius: 50px;
+      background: var(--charcoal); color: var(--white); font-weight: 500; font-size: 0.85rem;
+      text-decoration: none; transition: var(--transition); letter-spacing: 0.5px;
+    }
+    .product-card-body .add-btn:hover { background: var(--amber); color: var(--white); }
+
+    /* ---- MISSION ---- */
+    .mission-section { padding: 120px 5%; background: var(--warm-cream); text-align: center; }
+    .mission-container { max-width: 800px; margin: 0 auto; }
+    .mission-section h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 20px; color: var(--charcoal); }
+    .mission-section h2 span { color: var(--olive); }
+    .mission-section .body-text { color: #5a4a3a; font-size: 1.1rem; font-weight: 300; line-height: 1.8; margin-bottom: 44px; }
+    .mission-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px 44px; }
+    .mission-badges span { display: inline-flex; align-items: center; gap: 12px; font-weight: 600; font-size: 0.9rem; color: var(--charcoal); }
+    .mission-badges i { color: var(--amber); font-size: 1.2rem; }
+
+    /* ---- TESTIMONIALS ---- */
+    .testimonials-section { padding: 100px 5%; background: var(--white); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; max-width: 1100px; margin: 0 auto; }
+    .testimonial-card {
+      background: var(--warm-cream); padding: 32px 28px; border-radius: 28px;
+      border: 1px solid rgba(26, 20, 16, 0.04); transition: var(--transition);
+    }
+    .testimonial-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(26, 20, 16, 0.04); }
+    .testimonial-card .stars { color: var(--gold); font-size: 1rem; margin-bottom: 12px; }
+    .testimonial-card blockquote { font-style: italic; color: #5a4a3a; font-size: 0.95rem; line-height: 1.7; }
+    .testimonial-card .author { margin-top: 14px; font-weight: 600; color: var(--charcoal); }
+
+    /* ---- FUNNEL ---- */
+    .funnel-section {
+      padding: 140px 5%; background: linear-gradient(160deg, var(--charcoal) 0%, #0f0a08 100%);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .funnel-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 30%, rgba(122, 138, 90, 0.03) 0%, transparent 70%);
+    }
+    .funnel-box {
+      max-width: 680px; margin: 0 auto; background: rgba(255,255,255,0.02); backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.04); padding: 56px 48px; border-radius: 48px;
+      position: relative; z-index: 1;
+    }
+    .funnel-box .tag {
+      display: inline-block; background: rgba(122, 138, 90, 0.06); color: var(--olive);
+      padding: 6px 24px; border-radius: 50px; font-weight: 500; font-size: 0.7rem;
+      letter-spacing: 3px; text-transform: uppercase; margin-bottom: 18px;
+      border: 1px solid rgba(122, 138, 90, 0.04);
+    }
+    .funnel-box h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--white); margin-bottom: 10px; }
+    .funnel-box h2 span { color: var(--amber); }
+    .funnel-box p { color: rgba(255,255,255,0.5); margin-bottom: 36px; font-size: 1rem; font-weight: 300; }
+    .lead-form { display: flex; flex-direction: column; gap: 16px; text-align: left; }
+    .lead-form input, .lead-form select {
+      width: 100%; padding: 18px 22px; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; color: var(--white);
+      font-size: 0.95rem; outline: none; transition: var(--transition);
+      font-family: 'Inter', sans-serif;
+    }
+    .lead-form select option { background: var(--charcoal); }
+    .lead-form input::placeholder { color: rgba(255,255,255,0.25); }
+    .lead-form input:focus, .lead-form select:focus {
+      border-color: var(--olive); background: rgba(255,255,255,0.05);
+      box-shadow: 0 0 0 4px rgba(122, 138, 90, 0.04);
+    }
+    .lead-form button {
+      background: var(--olive); color: var(--white); border: none; padding: 18px;
+      border-radius: 60px; font-weight: 600; font-size: 1rem; cursor: pointer;
+      transition: var(--transition); margin-top: 8px; letter-spacing: 0.5px;
+    }
+    .lead-form button:hover { background: #6a7a4a; transform: translateY(-4px); box-shadow: 0 12px 36px rgba(122, 138, 90, 0.1); }
+
+    /* ---- MAP ---- */
+    .map-section { padding: 60px 5% 40px; background: var(--charcoal); }
+    .map-wrapper { max-width: 1280px; margin: 0 auto; border-radius: 40px; overflow: hidden; border: 1px solid rgba(255,255,255,0.02); height: 220px; background: #0f0a08; }
+    .map-wrapper iframe { width: 100%; height: 100%; border: 0; filter: invert(0.85) hue-rotate(180deg) saturate(0.5); }
+
+    /* ---- FOOTER ---- */
+    footer { padding: 60px 5% 40px; background: #0f0a08; border-top: 1px solid rgba(255,255,255,0.02); }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1280px; margin: 0 auto 50px; color: rgba(255,255,255,0.3); }
+    .footer-col h4 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; color: #fff; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .footer-col h4 i { color: var(--olive); }
+    .footer-col p, .footer-col a { color: rgba(255,255,255,0.2); font-size: 0.95rem; text-decoration: none; display: block; margin-bottom: 10px; font-weight: 300; transition: var(--transition); }
+    .footer-col a:hover { color: var(--olive); }
+    .social-links { display: flex; gap: 14px; margin-top: 16px; }
+    .social-links a {
+      width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.02);
+      display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.2);
+      font-size: 1.1rem; transition: var(--transition); border: 1px solid rgba(255,255,255,0.02);
+    }
+    .social-links a:hover { background: var(--olive); color: var(--charcoal); transform: translateY(-4px); }
+    .footer-bottom { text-align: center; color: rgba(255,255,255,0.08); font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.02); padding-top: 30px; }
+
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.05s; } .delay-2 { transition-delay: 0.1s; } .delay-3 { transition-delay: 0.15s; }
+  </style>
+</head>
+<body>
+  <nav class="sticky-nav">
+    <div class="nav-brand"><i class="fa-regular fa-paw"></i> Nimbus &amp; Co.</div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="#products">Shop</a>
+      <a href="#mission">Mission</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#funnel" class="nav-cta">Shop Now</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2023/07/12/172769-844693017_large.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="hero-content">
+      <div class="badge"><i class="fa-regular fa-star"></i> PREMIUM PET ESSENTIALS</div>
+      <div class="accent-line"></div>
+      <h1>Luxury Care for Your <span>Loyal Companion</span></h1>
+      <p>Sustainably crafted, veterinarian-approved accessories and nutrition for the modern pet parent.</p>
+      <div class="hero-buttons">
+        <a href="#funnel" class="btn-primary"><i class="fa-regular fa-gift"></i> Claim 25% Off First Order</a>
+        <a href="#products" class="btn-secondary">Explore</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="social-proof">
+    <div class="badge-row">
+      <span><i class="fa-regular fa-newspaper"></i> Modern Dog Magazine</span>
+      <span><i class="fa-regular fa-heart"></i> Pet Insider</span>
+      <span><i class="fa-regular fa-star"></i> 4.9 ★ (2,300+ reviews)</span>
+    </div>
+    <div class="quote-rotate">
+      <blockquote>“Nimbus &amp; Co. has completely elevated our pet care routine. The quality is unmatched, and our golden retriever has never been happier.”</blockquote>
+      <div class="author">— Sarah &amp; Max (Golden Retriever)</div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item"><div class="number">2.3K+</div><div class="label">Happy Pets</div></div>
+      <div class="stat-item"><div class="number">4.9★</div><div class="label">Average Rating</div></div>
+      <div class="stat-item"><div class="number">100%</div><div class="label">Vet-Approved</div></div>
+      <div class="stat-item"><div class="number">50+</div><div class="label">Products</div></div>
+    </div>
+  </section>
+
+  <section class="products-section" id="products">
+    <div class="container">
+      <h2 class="section-title">Best <span>Sellers</span></h2>
+      <p class="section-sub">Curated for comfort, style, and wellness.</p>
+      <div class="products-grid">
+        <div class="product-card reveal delay-1">
+          <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&h=400&fit=crop&crop=center&auto=format" alt="Orthopedic Bed" />
+          <div class="product-card-body">
+            <h3>Luxury Orthopedic Bed</h3>
+            <p>Memory foam support with a removable, machine-washable cover in premium herringbone fabric.</p>
+            <div class="price">$129.00</div>
+            <a href="#funnel" class="add-btn">Add to Cart</a>
+          </div>
+        </div>
+        <div class="product-card reveal delay-2">
+          <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=400&fit=crop&crop=center&auto=format" alt="Harness Set" />
+          <div class="product-card-body">
+            <h3>Eco-Leather Harness Set</h3>
+            <p>Handcrafted from sustainable materials with brass hardware and a matching lead.</p>
+            <div class="price">$89.00</div>
+            <a href="#funnel" class="add-btn">Add to Cart</a>
+          </div>
+        </div>
+        <div class="product-card reveal delay-3">
+          <img src="https://images.unsplash.com/photo-1544507888-2d4ec0b6bdbe?w=600&h=400&fit=crop&crop=center&auto=format" alt="Wellness Treats" />
+          <div class="product-card-body">
+            <h3>Organic Wellness Treats</h3>
+            <p>Grain-free, single-ingredient treats sourced from ethical farms. 100% natural.</p>
+            <div class="price">$24.00</div>
+            <a href="#funnel" class="add-btn">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mission-section" id="mission">
+    <div class="mission-container">
+      <h2>Crafted with <span>Purpose</span></h2>
+      <div class="body-text">Every product is designed with your pet's health and happiness in mind. We use only non-toxic, sustainable materials and partner with veterinarians to ensure the highest standards.</div>
+      <div class="mission-badges">
+        <span><i class="fa-regular fa-circle-check"></i> Vet-Approved</span>
+        <span><i class="fa-regular fa-circle-check"></i> Sustainable Materials</span>
+        <span><i class="fa-regular fa-circle-check"></i> Cruelty-Free</span>
+        <span><i class="fa-regular fa-circle-check"></i> Eco-Friendly Packaging</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">What Our <span>Customers Say</span></h2>
+      <p class="section-sub">Real reviews from happy pets and their owners.</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal delay-1">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <blockquote>“The Luxury Orthopedic Bed has been a game-changer for my senior dog. She sleeps soundly and wakes up refreshed.”</blockquote>
+          <div class="author">— Rachel M., Dog Mom</div>
+        </div>
+        <div class="testimonial-card reveal delay-2">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <blockquote>“The Eco-Leather Harness is beautifully made and fits perfectly. My pup loves it, and I love the sustainable materials.”</blockquote>
+          <div class="author">— James P., Cat Dad</div>
+        </div>
+        <div class="testimonial-card reveal delay-3">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <blockquote>“My golden retriever goes crazy for the Organic Wellness Treats. I love knowing they're healthy and natural.”</blockquote>
+          <div class="author">— Sarah K., Golden Retriever Mom</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="funnel-section" id="funnel">
+    <div class="funnel-box">
+      <div class="tag"><i class="fa-regular fa-gift"></i> NEW PARENT OFFER</div>
+      <h2>Get <span>25% Off</span> Your First Order + Free Shipping</h2>
+      <p>Join thousands of happy pets and their owners. Enter your email for your exclusive discount.</p>
+      <form class="lead-form" onsubmit="event.preventDefault(); alert('✅ Check your email for your 25% off code!');">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <select required>
+          <option value="" disabled selected>Pet Type</option>
+          <option value="dog">Dog</option>
+          <option value="cat">Cat</option>
+          <option value="other">Other</option>
+        </select>
+        <button type="submit"><i class="fa-regular fa-tags"></i> Unlock My 25% Discount</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <div class="map-wrapper">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71312937933039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a316bb7ae1b%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1679076800000" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4><i class="fa-regular fa-location-dot"></i> Studio</h4>
+        <p>742 Evergreen Terrace<br />Portland, OR 97201</p>
+        <p><a href="mailto:hello@nimbusco.com">hello@nimbusco.com</a></p>
+        <p><a href="tel:+18005551234">+1 (800) 555-1234</a></p>
+      </div>
+      <div class="footer-col">
+        <h4><i class="fa-regular fa-clock"></i> Support</h4>
+        <p>Mon – Fri: 9AM – 6PM PST</p>
+        <p style="color:rgba(255,255,255,0.06);font-size:0.85rem;">Response within 2 hours</p>
+      </div>
+      <div class="footer-col">
+        <h4><i class="fa-regular fa-share-nodes"></i> Connect</h4>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Nimbus &amp; Co. · Premium Pet Essentials. All rights reserved.</p></div>
+  </footer>
+
+  <script>
+    (function() {
+      const reveals = document.querySelectorAll('.reveal');
+      function checkVisibility() {
+        const h = window.innerHeight;
+        reveals.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < h - 80) {
+            el.classList.add('visible');
+          }
+        });
+      }
+      window.addEventListener('scroll', checkVisibility);
+      window.addEventListener('resize', checkVisibility);
+      checkVisibility();
+    })();
+  </script>
+</body>
+</html>

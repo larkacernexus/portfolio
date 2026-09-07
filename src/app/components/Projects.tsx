@@ -1,16 +1,21 @@
 'use client';
 
 import { useState } from 'react';
-import { FaExternalLinkAlt, FaHammer } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaHammer, FaEye } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import ProjectModal from './ProjectModal';
+import LivePreviewModal from './LivePreviewModal'; // 👈 NEW IMPORT
 
 export default function Projects() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [filter, setFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // 👈 NEW: Live preview state
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [previewTitle, setPreviewTitle] = useState('');
 
   const categories = ['all', 'AI/ML', 'Web Apps', 'Systems', 'Automation', 'Websites', 'E-Commerce', 'Creative', 'Calibration', 'Mobile'];
 
@@ -224,7 +229,74 @@ export default function Projects() {
       ]
     },
 
-    // ONGOING PROJECTS (with Unsplash construction images)
+    // 👇 NEW: NIMBUS & CO. — your embedded HTML site
+    {
+      id: 'nimbus-co',
+      title: 'Nimbus & Co. Pet Essentials',
+      description: 'Premium pet essentials landing page with fullscreen video hero, animated particles, product showcase, testimonials, and a lead-capture funnel.',
+      tech: ['HTML5', 'CSS3', 'JavaScript', 'Font Awesome', 'Google Fonts'],
+      features: ['Video Hero', 'Animated Particles', 'Product Grid', 'Lead Funnel', 'Responsive Design', 'Google Maps Embed'],
+      color: '#C87A3A',
+      category: 'Websites',
+      image: '/images/projects/nimbus/nimbus-1.jpg',
+      status: 'completed',
+      fullDescription: 'Nimbus & Co. is a luxury pet essentials landing page built with vanilla HTML, CSS, and JavaScript. It features a fullscreen autoplay video hero, floating animated particles, a curated product showcase with hover effects, customer testimonials, a newsletter lead-capture funnel with a 25% discount offer, and an embedded Google Map. Fully responsive and dependency-free aside from CDN-loaded fonts and icons.',
+      challenges: 'Creating a premium, editorial feel using only vanilla HTML/CSS/JS while keeping the page lightweight and animation-rich.',
+      outcome: 'A fully responsive, animation-rich landing page with zero build step — ready to deploy as a static file.',
+      images: [
+        '/images/projects/nimbus/nimbus-1.jpg',
+      ],
+      liveUrl: '/projects/nimbus-co/index.html', // 👈 THIS is what makes the preview work
+    },
+
+    {
+      id: 'ao-constructions',
+      title: 'A&O Constructions',
+      description: 'Bold, industrial-grade construction company website with a fullscreen project hero, animated blueprint overlays, service showcase, completed-projects gallery, client testimonials, and a free-estimate lead-capture funnel.',
+      tech: ['HTML5', 'CSS3', 'JavaScript', 'Font Awesome', 'Google Fonts'],
+      features: ['Video Hero', 'Animated Blueprints', 'Services Grid', 'Projects Gallery', 'Lead Funnel', 'Responsive Design', 'Google Maps Embed'],
+      color: '#F59E0B',
+      category: 'Websites',
+      image: '/images/projects/ao-constructions/ao-constructions-1.jpg',
+      status: 'completed',
+      fullDescription: 'A&O Constructions is a bold, industrial-grade landing page built with vanilla HTML, CSS, and JavaScript for a full-service construction company. It opens with a fullscreen autoplay video hero showing active job sites, layered with floating animated blueprint-style overlays. The page walks visitors through core services (residential, commercial, renovation, and civil works), showcases completed projects in a hover-animated gallery, features verified client testimonials, and closes with a free-estimate lead-capture funnel. Fully responsive and dependency-free aside from CDN-loaded fonts and icons.',
+      challenges: 'Capturing the raw, industrial feel of a construction brand using only vanilla HTML/CSS/JS — balancing heavy typography and dark tones with clean, fast-loading animations.',
+      outcome: 'A fully responsive, animation-rich landing page with zero build step — ready to deploy as a static file and generate estimate requests from day one.',
+      images: [
+        '/images/projects/ao-constructions/ao-constructions-1.jpg',
+        '/images/projects/ao-constructions/ao-constructions-2.jpg',
+        '/images/projects/ao-constructions/ao-constructions-3.jpg',
+        '/images/projects/ao-constructions/ao-constructions-4.jpg',
+        '/images/projects/ao-constructions/ao-constructions-5.jpg',
+      ],
+      liveUrl: '/projects/ao-constructions/index.html', // 👈 THIS is what makes the preview work
+    },
+
+
+    {
+      id: 'plumbing-protection-plan-canada',
+      title: 'Plumbing Protection Plan of Canada Inc.',
+      description: 'Trust-focused plumbing protection website with a fullscreen service hero, animated pipe-flow graphics, coverage plan showcase, claim-process walkthrough, customer testimonials, and a free-quote lead-capture funnel.',
+      tech: ['HTML5', 'CSS3', 'JavaScript', 'Font Awesome', 'Google Fonts'],
+      features: ['Video Hero', 'Animated Pipe Flow', 'Coverage Plans', 'Claim Process', 'Testimonials', 'Lead Funnel', 'Responsive Design', 'Google Maps Embed'],
+      color: '#0EA5E9',
+      category: 'Websites',
+      image: '/images/projects/plumbing-protection/plumbing-protection-1.jpg',
+      status: 'completed',
+      fullDescription: 'Plumbing Protection Plan of Canada Inc. is a trust-driven landing page built with vanilla HTML, CSS, and JavaScript for a nationwide plumbing protection provider. It opens with a fullscreen autoplay video hero showing real plumbing work, layered with animated pipe-flow graphics that reinforce the brand story. The page walks visitors through available coverage plans, a step-by-step claim process, verified customer testimonials, and closes with a free-quote lead-capture funnel. Fully responsive and dependency-free aside from CDN-loaded fonts and icons.',
+      challenges: 'Building trust for a protection/insurance-style service using only vanilla HTML/CSS/JS — balancing a reassuring, professional tone with clear coverage details and a frictionless quote request flow.',
+      outcome: 'A fully responsive, animation-rich landing page with zero build step — ready to deploy as a static file and convert visitors into plan sign-ups from day one.',
+      images: [
+        '/images/projects/plumbing-protection/plumbing-protection-1.jpg',
+        '/images/projects/plumbing-protection/plumbing-protection-2.jpg',
+        '/images/projects/plumbing-protection/plumbing-protection-3.jpg',
+        '/images/projects/plumbing-protection/plumbing-protection-4.jpg',
+        '/images/projects/plumbing-protection/plumbing-protection-5.jpg',
+      ],
+      liveUrl: '/projects/plumbing-protection/index.html', // 👈 THIS is what makes the preview work
+    },
+
+    // ONGOING PROJECTS
     {
       id: 'workflow-automation',
       title: 'Workflow Automation Suite',
@@ -306,18 +378,24 @@ export default function Projects() {
     ? sortedProjects 
     : sortedProjects.filter(p => p.category === filter);
 
-  // Open modal with project details
+  // Open project details modal
   const openModal = (project: any) => {
     setSelectedProject(project);
     setIsModalOpen(true);
     document.body.style.overflow = 'hidden';
   };
 
-  // Close modal
+  // Close project details modal
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedProject(null);
     document.body.style.overflow = 'auto';
+  };
+
+  // 👈 NEW: Open live preview
+  const openPreview = (url: string, title: string) => {
+    setPreviewUrl(url);
+    setPreviewTitle(title);
   };
 
   return (
@@ -341,10 +419,10 @@ export default function Projects() {
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-5 py-2 text-sm font-medium transition-all duration-300 ${
+                className={`px-5 py-2 text-sm font-medium transition-all duration-300 border ${
                   filter === cat
-                    ? 'gradient-bg text-white shadow-lg shadow-indigo-500/25'
-                    : 'border hover:border-white/20'
+                    ? 'gradient-bg text-white shadow-lg shadow-indigo-500/25 border-transparent'
+                    : 'hover:border-indigo-500/30'
                 }`}
                 style={{ 
                   color: filter === cat ? 'white' : 'var(--text-secondary)',
@@ -388,7 +466,6 @@ export default function Projects() {
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     unoptimized={project.image?.startsWith('https://')}
                   />
-                  {/* Status Badge */}
                   {project.status === 'ongoing' && (
                     <div className="absolute top-2 right-2 flex items-center gap-1.5 px-3 py-1.5 bg-yellow-500/90 text-white text-xs font-medium rounded">
                       <FaHammer className="w-3 h-3" />
@@ -398,7 +475,6 @@ export default function Projects() {
                 </div>
 
                 <div className="p-6">
-                  {/* Category tag */}
                   <span 
                     className="inline-block text-xs font-medium px-3 py-1 mb-4"
                     style={{
@@ -413,7 +489,6 @@ export default function Projects() {
                   <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>{project.title}</h3>
                   <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>{project.description}</p>
 
-                  {/* Tech tags */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, idx) => (
                       <span key={idx} className="text-xs px-2.5 py-1 border" style={{ 
@@ -425,7 +500,6 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  {/* Features */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.features.map((feature, idx) => (
                       <span key={idx} className="text-xs px-2.5 py-1" style={{ 
@@ -438,8 +512,8 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  {/* Details Link - opens modal */}
-                  <div className="flex gap-4 pt-4 border-t" style={{ borderColor: 'var(--border-color)' }}>
+                  {/* 👇 Action buttons — now includes Live Preview */}
+                  <div className="flex flex-wrap gap-4 pt-4 border-t" style={{ borderColor: 'var(--border-color)' }}>
                     <button
                       onClick={(e) => { e.stopPropagation(); openModal(project); }}
                       className="text-sm font-medium inline-flex items-center gap-1 transition-colors hover:opacity-70"
@@ -447,6 +521,32 @@ export default function Projects() {
                     >
                       Details <FaExternalLinkAlt className="w-3 h-3" />
                     </button>
+
+                    {project.liveUrl && (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openPreview(project.liveUrl!, project.title);
+                        }}
+                        className="text-sm font-medium inline-flex items-center gap-1 transition-colors hover:opacity-70"
+                        style={{ color: '#22c55e' }}
+                      >
+                        Live Preview <FaEye className="w-3 h-3" />
+                      </button>
+                    )}
+
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-sm font-medium inline-flex items-center gap-1 transition-colors hover:opacity-70"
+                        style={{ color: 'var(--text-muted)' }}
+                      >
+                        Open <FaExternalLinkAlt className="w-3 h-3" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -454,7 +554,6 @@ export default function Projects() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Project Count */}
         <div className="text-center mt-12">
           <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
             Showing {filteredProjects.length} projects
@@ -463,11 +562,18 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Modal */}
+      {/* Project details modal (existing) */}
       <ProjectModal 
         project={selectedProject}
         isOpen={isModalOpen}
         onClose={closeModal}
+      />
+
+      {/* 👇 NEW: Live preview iframe modal */}
+      <LivePreviewModal
+        url={previewUrl}
+        title={previewTitle}
+        onClose={() => setPreviewUrl(null)}
       />
     </section>
   );

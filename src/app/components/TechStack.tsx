@@ -6,7 +6,7 @@ import {
   SiGit, SiDocker, SiPython, SiNodedotjs, SiRedis, SiGraphql,
   SiMongodb, SiFirebase, SiTerraform, SiKubernetes
 } from 'react-icons/si';
-import { FaAws } from 'react-icons/fa';
+import { FaAws, FaRobot } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 export default function TechStack() {
@@ -38,12 +38,18 @@ export default function TechStack() {
     { icon: SiTerraform, name: 'Terraform', color: '#7B42BC', category: 'DevOps' },
     { icon: FaAws, name: 'AWS', color: '#FF9900', category: 'DevOps' },
     
-    // Additional
+    // API
     { icon: SiGraphql, name: 'GraphQL', color: '#E10098', category: 'API' },
     { icon: SiFirebase, name: 'Firebase', color: '#FFCA28', category: 'Backend' },
+    
+    // AI Tools
+    { icon: FaRobot, name: 'Claude AI', color: '#7C3AED', category: 'AI Tools' },
+    { icon: FaRobot, name: 'ChatGPT', color: '#10A37F', category: 'AI Tools' },
+    { icon: FaRobot, name: 'Gemini', color: '#4285F4', category: 'AI Tools' },
+    { icon: FaRobot, name: 'DeepSeek', color: '#6366f1', category: 'AI Tools' },
   ];
 
-  const categories = ['Languages', 'Frontend', 'Backend', 'Database', 'DevOps', 'API'];
+  const categories = ['Languages', 'Frontend', 'Backend', 'Database', 'DevOps', 'API', 'AI Tools'];
   const groupedTechs = categories.map(cat => ({
     name: cat,
     items: techs.filter(t => t.category === cat)
@@ -76,71 +82,93 @@ export default function TechStack() {
           </motion.div>
         </div>
 
-        {/* Horizontal List Layout */}
-        <div className="overflow-x-auto pb-4 hide-scrollbar">
-          <div className="flex gap-12 min-w-max">
-            {groupedTechs.map((group, groupIndex) => (
-              <motion.div
-                key={group.name}
-                className="flex-shrink-0 w-56"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: groupIndex * 0.1, duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                {/* Category Header */}
-                <div className="mb-4">
-                  <h3 className="text-sm font-semibold uppercase tracking-wider flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
-                    <span className="w-6 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500"></span>
-                    {group.name}
-                    <span className="text-xs font-normal" style={{ color: 'var(--text-muted)' }}>
-                      ({group.items.length})
-                    </span>
-                  </h3>
-                </div>
+        {/* Scrollable Container with Visible Scrollbar Only on Sideways Scroll */}
+        <div className="relative">
+          {/* Scroll Hint */}
+          <div className="text-center mb-4">
+            <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+              ← Scroll sideways to explore all categories →
+            </p>
+          </div>
 
-                {/* Tech Items List */}
-                <div className="space-y-3">
-                  {group.items.map((tech, index) => (
-                    <motion.div
-                      key={index}
-                      className="flex items-center gap-3 p-3 rounded-xl glass-light transition-all duration-300 cursor-pointer group"
-                      whileHover={{ 
-                        x: 6,
-                        scale: 1.02,
-                        transition: { type: 'spring', stiffness: 300 }
-                      }}
-                      whileTap={{ scale: 0.98 }}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      viewport={{ once: true }}
-                    >
-                      {/* Icon with glow */}
-                      <div className="relative flex-shrink-0">
-                        <div 
-                          className="absolute -inset-2 rounded-full opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"
-                          style={{ backgroundColor: tech.color }}
-                        ></div>
-                        <tech.icon 
-                          className="w-6 h-6 relative z-10 transition-transform duration-300 group-hover:scale-110" 
-                          style={{ color: tech.color }}
-                        />
-                      </div>
-                      
-                      {/* Tech Name */}
-                      <span className="text-sm font-medium transition-colors duration-300 flex-1" style={{ color: 'var(--text-secondary)' }}>
-                        {tech.name}
+          {/* Scrollable Content - Only horizontal scrollbar visible */}
+          <div 
+            className="overflow-x-auto overflow-y-hidden pb-4"
+            style={{
+              scrollbarWidth: 'thin',
+              scrollbarColor: '#6366f1 transparent',
+              WebkitOverflowScrolling: 'touch'
+            }}
+          >
+            <div className="flex gap-12 min-w-max px-4">
+              {groupedTechs.map((group, groupIndex) => (
+                <motion.div
+                  key={group.name}
+                  className="flex-shrink-0 w-56"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: groupIndex * 0.1, duration: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  {/* Category Header */}
+                  <div className="mb-4">
+                    <h3 className="text-sm font-semibold uppercase tracking-wider flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
+                      <span className="w-6 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500"></span>
+                      {group.name}
+                      <span className="text-xs font-normal" style={{ color: 'var(--text-muted)' }}>
+                        ({group.items.length})
                       </span>
-                      
-                      {/* Hover indicator line */}
-                      <div className="w-0 h-0.5 group-hover:w-8 transition-all duration-300" 
-                           style={{ backgroundColor: tech.color }}></div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                    </h3>
+                  </div>
+
+                  {/* Tech Items List */}
+                  <div className="space-y-3">
+                    {group.items.map((tech, index) => (
+                      <motion.div
+                        key={index}
+                        className="flex items-center gap-3 p-3 border transition-all duration-300 cursor-pointer group"
+                        style={{ 
+                          background: 'var(--bg-card)',
+                          borderColor: 'var(--border-color)'
+                        }}
+                        whileHover={{ 
+                          x: 6,
+                          scale: 1.02,
+                          borderColor: 'rgba(99,102,241,0.3)',
+                          transition: { type: 'spring', stiffness: 300 }
+                        }}
+                        whileTap={{ scale: 0.98 }}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                        viewport={{ once: true }}
+                      >
+                        {/* Icon with glow */}
+                        <div className="relative flex-shrink-0">
+                          <div 
+                            className="absolute -inset-2 rounded-full opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"
+                            style={{ backgroundColor: tech.color }}
+                          ></div>
+                          <tech.icon 
+                            className="w-6 h-6 relative z-10 transition-transform duration-300 group-hover:scale-110" 
+                            style={{ color: tech.color }}
+                          />
+                        </div>
+                        
+                        {/* Tech Name */}
+                        <span className="text-sm font-medium transition-colors duration-300 flex-1" style={{ color: 'var(--text-secondary)' }}>
+                          {tech.name}
+                        </span>
+                        
+                        {/* Hover indicator line */}
+                        <div className="w-0 h-0.5 group-hover:w-8 transition-all duration-300" 
+                             style={{ backgroundColor: tech.color }}></div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -152,14 +180,17 @@ export default function TechStack() {
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center gap-8 px-8 py-4 rounded-2xl glass-light border border-white/5 flex-wrap justify-center">
+          <div className="inline-flex items-center gap-8 px-8 py-4 border flex-wrap justify-center" style={{ 
+            borderColor: 'var(--border-color)',
+            background: 'var(--bg-card)'
+          }}>
             <div className="text-center">
               <div className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{techs.length}</div>
               <div className="text-xs" style={{ color: 'var(--text-muted)' }}>Technologies</div>
             </div>
             <div className="w-px h-10" style={{ background: 'var(--border-color)' }}></div>
             <div className="text-center">
-              <div className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>6</div>
+              <div className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>7</div>
               <div className="text-xs" style={{ color: 'var(--text-muted)' }}>Categories</div>
             </div>
             <div className="w-px h-10" style={{ background: 'var(--border-color)' }}></div>
@@ -171,14 +202,31 @@ export default function TechStack() {
         </motion.div>
       </div>
 
-      {/* Hide scrollbar styles */}
+      {/* Custom Scrollbar Styles - Only horizontal scrollbar visible */}
       <style jsx>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
+        /* For Webkit browsers (Chrome, Safari, Edge) */
+        .overflow-x-auto::-webkit-scrollbar {
+          height: 8px;
+          width: 0px; /* Hide vertical scrollbar */
         }
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
+        .overflow-x-auto::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .overflow-x-auto::-webkit-scrollbar-thumb {
+          background: linear-gradient(90deg, #6366f1, #8b5cf6);
+          border-radius: 0px;
+        }
+        .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(90deg, #4f46e5, #7c3aed);
+        }
+        /* For Firefox */
+        .overflow-x-auto {
+          scrollbar-width: thin;
+          scrollbar-color: #6366f1 transparent;
+        }
+        /* Hide vertical scrollbar in Firefox */
+        .overflow-x-auto {
+          overflow-y: hidden;
         }
       `}</style>
     </section>
