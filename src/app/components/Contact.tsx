@@ -1,7 +1,7 @@
 'use client';
 
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from '@heroicons/react/24/outline';
-import { FaLinkedin, FaGithub, FaTwitter, FaArrowRight } from 'react-icons/fa';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
@@ -94,9 +94,9 @@ export default function Contact() {
             <div className="mt-8 pt-6 border-t" style={{ borderColor: 'var(--border-color)' }}>
               <p className="text-xs font-semibold mb-3" style={{ color: 'var(--text-muted)' }}>Connect</p>
               <div className="flex gap-3">
-                <SocialIcon icon={<FaLinkedin />} href="#" label="LinkedIn" />
-                <SocialIcon icon={<FaGithub />} href="#" label="GitHub" />
-                <SocialIcon icon={<FaTwitter />} href="#" label="Twitter" />
+                <SocialIcon icon={<FaLinkedin />} href="https://www.linkedin.com/in/janndhelle-marth-zulueta" label="LinkedIn" />
+                <SocialIcon icon={<FaGithub />} href="https://github.com/larkacernexus" label="GitHub" />
+                <SocialIcon icon={<EnvelopeIcon className="w-5 h-5" />} href="mailto:zuluetajanndhellemarth@gmail.com" label="Email" />
               </div>
             </div>
 

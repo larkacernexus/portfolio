@@ -27,15 +27,9 @@ export default function Footer() {
             <span>Built with</span>
             <FaHeart className="w-4 h-4 text-red-500 animate-pulse" />
             <span>by</span>
-            <a 
-              href="https://www.larkacer-nexus.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="font-medium hover:opacity-80 transition-opacity"
-              style={{ color: 'var(--text-secondary)' }}
-            >
-              Larkacer Nexus
-            </a>
+            <span className="font-medium" style={{ color: 'var(--text-secondary)' }}>
+              Janndhelle Marth Zulueta
+            </span>
           </div>
         </div>
       </div>

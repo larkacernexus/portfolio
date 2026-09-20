@@ -1,14 +1,16 @@
 'use client';
 
-import { FaCode, FaRocket, FaUsers, FaBrain, FaArrowRight } from 'react-icons/fa';
+import { FaCode, FaRocket, FaUsers, FaBrain } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 export default function About() {
+  // Honest stats based on the real project list:
+  // 10 systems built · 10 clients served · 4 platforms · 3 years coding
   const stats = [
-    { icon: FaCode, label: 'Projects', value: '15+', color: '#6366f1' },
-    { icon: FaUsers, label: 'Clients', value: '12+', color: '#8b5cf6' },
-    { icon: FaRocket, label: 'Systems', value: '8', color: '#ec4899' },
-    { icon: FaBrain, label: 'AI Workflows', value: '20+', color: '#06b6d4' },
+    { icon: FaCode, label: 'Systems Built', value: '10', color: '#6366f1' },
+    { icon: FaUsers, label: 'Clients Served', value: '10', color: '#8b5cf6' },
+    { icon: FaRocket, label: 'Platforms', value: '4', color: '#ec4899' },
+    { icon: FaBrain, label: 'Years Coding', value: '3', color: '#06b6d4' },
   ];
 
   return (
@@ -30,7 +32,7 @@ export default function About() {
               About <span className="gradient-text">Me</span>
             </h2>
             <p className="max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-              AI Automation Specialist & Lead Systems Architect at Larkacer Nexus
+              Solo full-stack developer · Founder of Larkacer Nexus
             </p>
           </motion.div>
         </div>
@@ -43,62 +45,65 @@ export default function About() {
             viewport={{ once: true }}
           >
             <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>
-              AI Automation & Systems Specialist
+              Full-Stack Developer &amp; Systems Builder
             </h3>
             <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
-              With 3+ years of experience implementing, troubleshooting, and optimizing 
-              web-based systems, digital workflows, and client solutions. I specialize in 
-              AI-assisted development, workflow automation, and system integrations.
+              I&apos;m a Philippines-based developer with 3 years of hands-on experience building
+              web applications, desktop tools, and mobile apps for real clients — schools,
+              small businesses, sari-sari stores, and community organizations.
             </p>
             <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
-              As the <strong style={{ color: 'var(--text-primary)' }}>Lead Systems Architect at Larkacer Nexus</strong>, 
-              I lead a team of elite Filipino engineers delivering premium IT infrastructure 
-              and mission-critical systems to global enterprises.
+              As the <strong style={{ color: 'var(--text-primary)' }}>founder of Larkacer Nexus</strong>,
+              I work directly with every client. No account managers, no offshore handoffs —
+              you talk to the person writing the code.
             </p>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              I'm passionate about analyzing how applications, APIs, databases, and workflows 
-              connect, identifying root causes, and implementing practical solutions.
+              I focus on practical problems: digitizing manual processes, connecting APIs and
+              databases, and using AI tools to ship faster than a traditional workflow. I care
+              about systems that actually run in production, not demos.
             </p>
-            
+
             <div className="mt-6 flex flex-wrap gap-2">
-              <span className="text-xs px-3 py-1 border" style={{ 
+              <span className="text-xs px-3 py-1 border" style={{
                 color: 'var(--text-muted)',
                 borderColor: 'var(--border-color)'
-              }}>AI Engineering</span>
-              <span className="text-xs px-3 py-1 border" style={{ 
+              }}>Laravel + React</span>
+              <span className="text-xs px-3 py-1 border" style={{
                 color: 'var(--text-muted)',
                 borderColor: 'var(--border-color)'
-              }}>System Architecture</span>
-              <span className="text-xs px-3 py-1 border" style={{ 
+              }}>Next.js</span>
+              <span className="text-xs px-3 py-1 border" style={{
                 color: 'var(--text-muted)',
                 borderColor: 'var(--border-color)'
-              }}>Workflow Automation</span>
-              <span className="text-xs px-3 py-1 border" style={{ 
+              }}>MySQL</span>
+              <span className="text-xs px-3 py-1 border" style={{
                 color: 'var(--text-muted)',
                 borderColor: 'var(--border-color)'
-              }}>API Integration</span>
-              <span className="text-xs px-3 py-1 border" style={{ 
+              }}>Flutter</span>
+              <span className="text-xs px-3 py-1 border" style={{
                 color: 'var(--text-muted)',
                 borderColor: 'var(--border-color)'
-              }}>Full-Stack Development</span>
+              }}>Electron</span>
+              <span className="text-xs px-3 py-1 border" style={{
+                color: 'var(--text-muted)',
+                borderColor: 'var(--border-color)'
+              }}>AI-Assisted Workflow</span>
             </div>
 
             <div className="mt-6 flex flex-wrap gap-4">
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="text-sm font-medium transition-opacity hover:opacity-70"
                 style={{ color: '#818cf8' }}
               >
-                Let's work together →
+                Let&apos;s work together →
               </a>
-              <a 
-                href="https://www.larkacer-nexus.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <a
+                href="#projects"
                 className="text-sm font-medium transition-opacity hover:opacity-70"
                 style={{ color: 'var(--text-muted)' }}
               >
-                Visit Larkacer Nexus →
+                See my work →
               </a>
             </div>
           </motion.div>
@@ -114,13 +119,13 @@ export default function About() {
               <motion.div
                 key={index}
                 className="p-6 text-center border transition-all duration-300 hover:border-indigo-500/30"
-                style={{ 
+                style={{
                   background: 'var(--bg-card)',
                   borderColor: 'var(--border-color)'
                 }}
                 whileHover={{ y: -4 }}
               >
-                <div 
+                <div
                   className="w-10 h-10 flex items-center justify-center mx-auto mb-3"
                   style={{ background: `${stat.color}15`, border: `1px solid ${stat.color}25` }}
                 >

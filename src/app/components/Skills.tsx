@@ -1,52 +1,53 @@
 'use client';
 
-import { FaRobot, FaCode, FaDatabase, FaCloud, FaTools, FaShieldAlt } from 'react-icons/fa';
+import { FaRobot, FaCode, FaDatabase, FaCloud, FaMobileAlt, FaDesktop } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 export default function Skills() {
   const skillCategories = [
     {
       icon: FaCode,
-      title: 'Frontend Development',
-      skills: ['ReactJS', 'VueJS', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+      title: 'Frontend',
+      skills: ['React', 'Next.js', 'Vue.js', 'Tailwind CSS', 'JavaScript', 'TypeScript'],
       color: '#06b6d4'
     },
     {
       icon: FaDatabase,
       title: 'Backend & Database',
-      skills: ['PHP/Laravel', 'Node.js', 'MySQL', 'PostgreSQL', 'REST APIs'],
+      skills: ['Laravel', 'PHP', 'Node.js', 'MySQL', 'REST APIs'],
       color: '#10b981'
     },
     {
-      icon: FaCloud,
-      title: 'DevOps & Tools',
-      skills: ['Git/GitHub', 'CI/CD', 'Basic Docker Knowledge', 'Linux Familiarity', 'AWS (Learning)'],
-      color: '#f59e0b'
-    },
-    {
-      icon: FaTools,
-      title: 'Tools & Workflows',
-      skills: ['Google Apps Script', 'Figma', 'Agile/Scrum', 'Trello', 'Jira'],
+      icon: FaMobileAlt,
+      title: 'Mobile & Desktop',
+      skills: ['Flutter', 'Dart', 'SQLite (offline)', 'Electron'],
       color: '#ec4899'
     },
     {
-      icon: FaShieldAlt,
-      title: 'System & Security',
-      skills: ['System Architecture', 'Security Best Practices', 'Performance Optimization'],
+      icon: FaCloud,
+      title: 'Tools & Workflow',
+      skills: ['Git / GitHub', 'Docker (basic)', 'Linux', 'Google Apps Script', 'Figma'],
+      color: '#f59e0b'
+    },
+    {
+      icon: FaDesktop,
+      title: 'Currently Learning',
+      skills: ['AWS', 'Kubernetes', 'Terraform', 'Python'],
       color: '#8b5cf6'
     },
     {
       icon: FaRobot,
-      title: 'AI & Automation',
+      title: 'AI Tools',
       skills: [
-        'AI-Assisted Development',
-        'Workflow Automation',
-        'Prompt Engineering',
-        'AI Integration',
-        'Claude AI',
+        'Claude',
         'ChatGPT',
         'Gemini',
-        'DeepSeek'
+        'GitHub Copilot',
+        'DeepSeek',
+        'Grok',
+        'DeepSite',
+        'Lovable',
+        'Blackbox'
       ],
       color: '#6366f1'
     }
@@ -69,8 +70,8 @@ export default function Skills() {
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: 'var(--text-primary)' }}>
               My <span className="gradient-text">Skills</span>
             </h2>
-            <p className="max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-              Expertise across the full spectrum of modern development
+            <p className="max-w-2xl mx-auto text-sm" style={{ color: 'var(--text-secondary)' }}>
+              What I work with — split by category and current level
             </p>
           </motion.div>
         </div>
@@ -92,7 +93,7 @@ export default function Skills() {
             >
               <div className="flex items-center gap-4 mb-4">
                 <div 
-                  className="p-2.5 transition-all duration-300 group-hover:scale-110"
+                  className="p-2.5"
                   style={{ background: `${category.color}15` }}
                 >
                   <category.icon className="w-5 h-5" style={{ color: category.color }} />

@@ -18,7 +18,8 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = ['Home', 'About', 'Services', 'Projects', 'Experience', 'Contact'];
+  // Added "Skills" — matches the #skills section on the page
+  const navItems = ['Home', 'About', 'Services', 'Projects', 'Skills', 'Experience', 'Contact'];
   const isLight = theme === 'light';
 
   return (
@@ -88,7 +89,7 @@ export default function Header() {
               href="#contact"
               className="ml-2 px-4 py-1.5 gradient-bg text-white text-xs font-medium transition-all duration-200 hover:opacity-85"
             >
-              Hire Me
+              Get in Touch
             </a>
           </div>
 
@@ -158,7 +159,7 @@ export default function Header() {
               className="block px-3 py-2 gradient-bg text-white text-sm font-medium text-center transition-opacity hover:opacity-85"
               onClick={() => setIsMenuOpen(false)}
             >
-              Hire Me
+              Get in Touch
             </a>
           </div>
         </motion.div>

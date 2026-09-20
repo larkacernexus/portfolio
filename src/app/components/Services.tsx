@@ -1,36 +1,36 @@
 'use client';
 
-import { FaServer, FaUsers, FaRocket, FaShieldAlt, FaArrowRight } from 'react-icons/fa';
+import { FaCode, FaDatabase, FaPlug, FaBrain } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 export default function Services() {
   const services = [
     {
-      icon: FaServer,
-      title: 'Full-Stack Development',
-      description: 'Building complete web applications from frontend to backend with modern frameworks and best practices.',
-      features: ['React / Vue', 'Node.js / Laravel', 'API Development'],
+      icon: FaCode,
+      title: 'Web App Development',
+      description: 'Full-stack web applications built end-to-end — from database design to deployed frontend.',
+      features: ['Laravel', 'React / Next.js', 'Tailwind CSS'],
       color: '#6366f1'
     },
     {
-      icon: FaUsers,
-      title: 'Team Leadership',
-      description: 'Leading engineering teams to deliver high-quality software solutions on time and within scope.',
-      features: ['Agile/Scrum', 'Code Reviews', 'Mentorship'],
+      icon: FaDatabase,
+      title: 'Business Systems',
+      description: 'Custom systems that replace spreadsheets and paper processes for clinics, schools, and small businesses.',
+      features: ['Records Management', 'Inventory & POS', 'Scheduling & Billing'],
       color: '#8b5cf6'
     },
     {
-      icon: FaRocket,
-      title: 'System Architecture',
-      description: 'Designing scalable, maintainable system architectures that grow with your business needs.',
-      features: ['Microservices', 'Cloud Infrastructure', 'Performance Optimization'],
+      icon: FaPlug,
+      title: 'API Integration & Automation',
+      description: 'Connecting third-party services, syncing data between systems, and automating repetitive workflows.',
+      features: ['REST APIs', 'Google Apps Script', 'Data Sync'],
       color: '#ec4899'
     },
     {
-      icon: FaShieldAlt,
-      title: 'AI & Automation',
-      description: 'Integrating AI-powered solutions and automating workflows to increase efficiency and reduce manual work.',
-      features: ['AI Integration', 'Workflow Automation', 'Process Optimization'],
+      icon: FaBrain,
+      title: 'AI-Assisted Development',
+      description: 'Using AI tools to ship faster — cleaner code, faster debugging, and quicker documentation for every project.',
+      features: ['Claude / ChatGPT', 'GitHub Copilot', 'Faster Delivery'],
       color: '#06b6d4'
     }
   ];
@@ -53,10 +53,10 @@ export default function Services() {
               What I <span className="gradient-text">Do</span>
             </h2>
             <p className="max-w-2xl mx-auto text-sm" style={{ color: 'var(--text-secondary)' }}>
-              Building systems, leading teams, and solving problems with code.
+              Building web systems and solving practical problems with code.
             </p>
             <p className="max-w-2xl mx-auto text-xs mt-2" style={{ color: 'var(--text-muted)' }}>
-              Founder & Lead Architect at{' '}
+              Founder &amp; Developer at{' '}
               <a 
                 href="https://www.larkacer-nexus.com" 
                 target="_blank" 
@@ -113,7 +113,7 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Link to Larkacer Nexus */}
+        {/* CTA */}
         <motion.div
           className="text-center mt-12"
           initial={{ opacity: 0 }}
@@ -122,19 +122,17 @@ export default function Services() {
           viewport={{ once: true }}
         >
           <p className="text-xs mb-3" style={{ color: 'var(--text-muted)' }}>
-            Also leading engineering at
+            Have a project in mind?
           </p>
           <a
-            href="https://www.larkacer-nexus.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="inline-block px-6 py-2.5 text-sm font-medium border transition-all duration-200 hover:opacity-70 hover:border-indigo-500/30"
             style={{ 
               color: 'var(--text-secondary)',
               borderColor: 'var(--border-color)'
             }}
           >
-            Larkacer Nexus →
+            Get in Touch →
           </a>
         </motion.div>
       </div>

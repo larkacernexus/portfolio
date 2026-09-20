@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { FaGithub, FaLinkedin, FaTwitter, FaArrowDown, FaFacebook, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaArrowDown } from 'react-icons/fa';
 import { EnvelopeIcon } from '@heroicons/react/24/outline';
 
 export default function Hero() {
@@ -23,23 +23,23 @@ export default function Hero() {
           <div className="order-2 lg:order-1">
             <div className="inline-flex items-center gap-2 text-xs font-medium tracking-wider uppercase mb-6" style={{ color: 'var(--text-muted)' }}>
               <span className="w-6 h-px bg-emerald-500"></span>
-              Available for work
+              Available for freelance &amp; remote work
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-              <span style={{ color: 'var(--text-primary)' }}>Janndhelle</span>
-              <span style={{ color: 'var(--text-secondary)' }}> · </span>
-              <span className="gradient-text">Systems</span>
-              <span style={{ color: 'var(--text-secondary)' }}> + </span>
-              <span className="gradient-text">AI</span>
+              <span style={{ color: 'var(--text-primary)' }}>Janndhelle Marth</span>
+              <br />
+              <span className="gradient-text">Zulueta</span>
             </h1>
             
             <p className="text-base md:text-lg mb-3" style={{ color: 'var(--text-secondary)' }}>
-              AI Automation · Systems Architecture · Full-Stack
+              Full-Stack Developer · AI-Assisted Workflow
             </p>
             
             <p className="max-w-md text-sm leading-relaxed mb-8" style={{ color: 'var(--text-muted)' }}>
-              Building intelligent systems at{' '}
+              I build business management systems and web apps for clinics, 
+              schools, and small businesses — using AI-assisted development 
+              to ship faster than a traditional workflow. Founder of{' '}
               <a 
                 href="https://www.larkacer-nexus.com" 
                 target="_blank" 
@@ -77,8 +77,6 @@ export default function Hero() {
               <SocialLink icon={<FaGithub className="w-4 h-4" />} href="https://github.com/larkacernexus" />
               <SocialLink icon={<FaLinkedin className="w-4 h-4" />} href="https://www.linkedin.com/in/janndhelle-marth-zulueta" />
               <SocialLink icon={<EnvelopeIcon className="w-4 h-4" />} href="mailto:zuluetajanndhellemarth@gmail.com" />
-              <SocialLink icon={<FaFacebook className="w-4 h-4" />} href="https://www.facebook.com/janndhellemarth.zulita.3/" />
-              <SocialLink icon={<FaInstagram className="w-4 h-4" />} href="https://www.instagram.com/jann_dhelle/" />
             </div>
           </div>
 
@@ -105,13 +103,13 @@ export default function Hero() {
                 borderColor: 'var(--border-color)',
                 color: 'var(--text-secondary)'
               }}>
-                AI Expert
+                AI-Assisted
               </div>
               <div className="absolute -bottom-2 -left-2 px-3 py-1 text-xs bg-white/5 backdrop-blur border" style={{ 
                 borderColor: 'var(--border-color)',
                 color: 'var(--text-secondary)'
               }}>
-                3+ Years
+                UTC+8 · Remote
               </div>
             </div>
           </div>

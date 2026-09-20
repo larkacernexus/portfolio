@@ -1,35 +1,35 @@
 'use client';
 
-import { FaBriefcase, FaCalendarAlt, FaBuilding, FaAward, FaChalkboardTeacher, FaLaptop, FaGlobe } from 'react-icons/fa';
+import { FaCalendarAlt, FaBuilding, FaAward, FaChalkboardTeacher, FaLaptop, FaGlobe, FaBriefcase } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 export default function Experience() {
   const experiences = [
     {
-      title: 'Lead Developer & Systems Architect',
-      company: 'Larkacer-Nexus IT Solutions',
+      title: 'Founder & Full-Stack Developer',
+      company: 'Larkacer Nexus IT Solutions',
       period: 'Jan 2026 – Present',
       description: [
-        'Design and maintain full-stack web applications using Laravel, ReactJS, VueJS, and PostgreSQL',
-        'Manage full development lifecycle from requirements to deployment and maintenance',
-        'Built Barangay Management System with digitized clearance and incident tracking',
-        'Reduced manual workload by 50%+ through business management systems'
+        'Build full-stack web applications using Laravel, React, and MySQL for local clients',
+        'Handle the full development lifecycle — requirements, database design, development, and deployment',
+        'Delivered systems for clinics, schools, small businesses, and community organizations',
+        'Use AI-assisted workflows (Claude, ChatGPT, GitHub Copilot) to speed up development and debugging'
       ],
-      achievements: ['15+ Systems Built', 'Team Leadership', 'AI Integration'],
+      achievements: ['Solo Founder', 'Full-Stack Delivery', 'AI-Assisted Workflow'],
       icon: FaBuilding,
       iconColor: '#818cf8'
     },
     {
-      title: 'Freelance Web Developer',
+      title: 'Freelance Web & Software Developer',
       company: 'Self-Employed / Independent Projects',
       period: '2023 – Present',
       description: [
-        'Developed responsive websites using HTML5, CSS3, JavaScript, and Bootstrap',
-        'Managed complete project lifecycles from consultation to post-launch support',
-        'Integrated frontend applications with backend services and APIs',
-        'Provided ongoing troubleshooting and operational support to clients'
+        'Delivered 11 projects across web, desktop (Electron), and mobile (Flutter) platforms',
+        'Built custom systems including POS, inventory management, and school grade portals',
+        'Managed complete project lifecycles — from client consultation to post-launch support',
+        'Integrated frontend applications with Laravel backends and REST APIs'
       ],
-      achievements: ['12+ Clients', 'Custom Solutions', 'Ongoing Support'],
+      achievements: ['11 Projects Delivered', '9+ Clients Served', '3 Years Experience'],
       icon: FaLaptop,
       iconColor: '#10b981'
     },
@@ -53,11 +53,11 @@ export default function Experience() {
       period: 'Aug 2024 – Aug 2025',
       description: [
         'Built and maintained the official website for Central Bukidnon Institute',
-        'Implemented responsive design and user-friendly interface',
-        'Managed content updates and site security',
-        'Provided technical support and training for staff'
+        'Developed a grade and account system so students could view their records online',
+        'Implemented responsive design and a user-friendly interface',
+        'Managed content updates and provided technical support for staff'
       ],
-      achievements: ['Full Website Development', 'Security Implementation', 'Staff Training'],
+      achievements: ['Full Website Development', 'Grade System Built', 'Staff Training'],
       icon: FaGlobe,
       iconColor: '#06b6d4'
     }
@@ -83,7 +83,7 @@ export default function Experience() {
               Work <span className="gradient-text">Experience</span>
             </h2>
             <p className="max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-              Professional journey building innovative solutions
+              Building software for real clients since 2023
             </p>
           </motion.div>
         </div>
