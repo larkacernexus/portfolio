@@ -199,7 +199,33 @@ export default function Projects() {
         '/images/projects/villamor/villamor-shop-4.jpg',
         '/images/projects/villamor/villamor-shop-5.jpg',
         '/images/projects/villamor/villamor-shop-6.jpg',
-      ]
+      ],
+      liveUrl: 'https://the-villamor-twins.larkacer-nexus.com',
+    },
+    {
+      id: 'dental-clinic-website',
+      title: 'Dental Clinic Website',
+      description: 'Modern, responsive dental clinic website with online appointment booking, service showcase, and patient testimonials.',
+      tech: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
+      features: ['Appointment Booking', 'Service Showcase', 'Patient Testimonials', 'Digital Check-in'],
+      color: '#06b6d4',
+      category: 'Web',
+      client: 'Dental Clinic',
+      deployment: 'Web system',
+      statusLabel: 'Delivered',
+      status: 'completed',
+      image: '/images/projects/dental/dental-website-1.jpg',
+      fullDescription: 'A modern dental clinic website designed to attract new patients and provide a seamless booking experience. Features include an online appointment booking system, detailed service descriptions, patient testimonials, and a contact form. Built with Next.js, Tailwind CSS, and Framer Motion for smooth animations.',
+      challenges: 'Creating an intuitive appointment booking flow and a professional, trust-building design.',
+      outcome: 'Delivered as a live, responsive website for the clinic.',
+      images: [
+        '/images/projects/dental/dental-website-1.jpg',
+        '/images/projects/dental/dental-website-2.jpg',
+        '/images/projects/dental/dental-website-3.jpg',
+        '/images/projects/dental/dental-website-4.jpg',
+        '/images/projects/dental/dental-website-5.jpg',
+      ],
+      liveUrl: 'https://dental-clinic-website.larkacer-nexus.com',
     },
 
     // ============ DESKTOP ============
@@ -368,7 +394,6 @@ export default function Projects() {
     },
   ];
 
-  // Sort: completed first, then pending/in development
   const sortedProjects = [...projects].sort((a, b) => {
     if (a.status === 'completed' && b.status !== 'completed') return -1;
     if (a.status !== 'completed' && b.status === 'completed') return 1;
@@ -396,7 +421,6 @@ export default function Projects() {
     setPreviewTitle(title);
   };
 
-  // Status badge helper
   const renderStatusBadge = (status: string) => {
     if (status === 'pending') {
       return (
@@ -424,7 +448,6 @@ export default function Projects() {
             Web systems, desktop tools, and mobile apps — built for businesses, schools, and local organizations.
           </p>
 
-          {/* Filter Buttons */}
           <div className="flex flex-wrap justify-center gap-3 mt-8">
             {categories.map((cat) => (
               <button
@@ -468,7 +491,6 @@ export default function Projects() {
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ y: -4 }}
               >
-                {/* Project Image */}
                 <div className="relative w-full h-48 overflow-hidden bg-neutral-800">
                   {project.image ? (
                     <Image
@@ -483,7 +505,6 @@ export default function Projects() {
                       <FaTools className="w-8 h-8 opacity-20" style={{ color: 'var(--text-muted)' }} />
                     </div>
                   )}
-                  {/* Status badge */}
                   {project.status === 'pending' && (
                     <div className="absolute top-2 right-2">
                       <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider px-2 py-1 bg-yellow-500/90 text-white">
@@ -517,7 +538,6 @@ export default function Projects() {
                     {project.description}
                   </p>
 
-                  {/* Status label */}
                   <div className="mb-3">
                     <span className="inline-flex items-center gap-1 text-xs"
                       style={{ color: project.status === 'completed' ? '#22c55e' : '#f59e0b' }}>
@@ -540,7 +560,6 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  {/* Action buttons */}
                   <div className="flex flex-wrap gap-4 pt-4 border-t mt-auto" style={{ borderColor: 'var(--border-color)' }}>
                     <button
                       onClick={(e) => { e.stopPropagation(); openModal(project); }}
@@ -570,9 +589,9 @@ export default function Projects() {
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
                         className="text-sm font-medium inline-flex items-center gap-1 transition-colors hover:opacity-70"
-                        style={{ color: 'var(--text-muted)' }}
+                        style={{ color: '#22c55e' }}
                       >
-                        Open <FaExternalLinkAlt className="w-3 h-3" />
+                        Live Demo <FaExternalLinkAlt className="w-3 h-3" />
                       </a>
                     )}
                   </div>
@@ -582,7 +601,6 @@ export default function Projects() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Footer note */}
         <div className="text-center mt-12 max-w-2xl mx-auto">
           <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
             Most systems were built for internal, offline, or desktop use — so they are not publicly deployed.
@@ -607,14 +625,12 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Project details modal */}
       <ProjectModal
         project={selectedProject}
         isOpen={isModalOpen}
         onClose={closeModal}
       />
 
-      {/* Live preview iframe modal */}
       <LivePreviewModal
         url={previewUrl}
         title={previewTitle}
