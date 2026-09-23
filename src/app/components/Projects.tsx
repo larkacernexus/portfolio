@@ -131,6 +131,13 @@ export default function Projects() {
       outcome: 'Delivered and used by school staff for grade management.',
       images: [
         '/images/projects/grading/grading-1.jpg',
+        '/images/projects/grading/grading-2.jpg',
+        '/images/projects/grading/grading-3.jpg',
+        '/images/projects/grading/grading-4.jpg',
+        '/images/projects/grading/grading-5.jpg',
+        '/images/projects/grading/grading-6.jpg',
+        '/images/projects/grading/grading-7.jpg',
+
       ]
     },
     {
@@ -151,6 +158,11 @@ export default function Projects() {
       outcome: 'Successfully defended as a capstone project.',
       images: [
         '/images/projects/qr-attendance/qr-1.jpg',
+        '/images/projects/qr-attendance/qr-2.jpg',
+        '/images/projects/qr-attendance/qr-3.jpg',
+        '/images/projects/qr-attendance/qr-4.jpg',
+        '/images/projects/qr-attendance/qr-5.jpg',
+        '/images/projects/qr-attendance/qr-6.jpg',
       ]
     },
     {
@@ -273,6 +285,8 @@ export default function Projects() {
       outcome: 'Currently in use at the store for daily inventory tracking.',
       images: [
         '/images/projects/tindahan/tindahan-1.jpg',
+        '/images/projects/tindahan/tindahan-2.jpg',
+        '/images/projects/tindahan/tindahan-3.jpg',
       ]
     },
 
@@ -293,7 +307,11 @@ export default function Projects() {
       fullDescription: 'Nimbus & Co. is a luxury pet essentials landing page built with vanilla HTML, CSS, and JavaScript. It features a fullscreen autoplay video hero, floating animated particles, a curated product showcase with hover effects, customer testimonials, a newsletter lead-capture funnel, and an embedded Google Map. Fully responsive and dependency-free aside from CDN-loaded fonts and icons.',
       challenges: 'Creating a premium, editorial feel using only vanilla HTML/CSS/JS while keeping the page lightweight and animation-rich.',
       outcome: 'A fully responsive, animation-rich landing page with zero build step — ready to deploy as a static file.',
-      images: ['/images/projects/nimbus/nimbus-1.jpg'],
+      images: ['/images/projects/nimbus/nimbus-1.jpg',
+        '/images/projects/nimbus/nimbus-2.jpg',
+        '/images/projects/nimbus/nimbus-3.jpg',
+        '/images/projects/nimbus/nimbus-4.jpg',
+      ],
       liveUrl: '/projects/nimbus-co/index.html',
     },
     {
@@ -315,9 +333,8 @@ export default function Projects() {
       images: [
         '/images/projects/ao-constructions/ao-constructions-1.jpg',
         '/images/projects/ao-constructions/ao-constructions-2.jpg',
-        '/images/projects/ao-constructions/ao-constructions-3.jpg',
-        '/images/projects/ao-constructions/ao-constructions-4.jpg',
-        '/images/projects/ao-constructions/ao-constructions-5.jpg',
+        '/images/projects/ao-constructions/ao-constructions-1.png',
+        '/images/projects/ao-constructions/ao-constructions-2.png',
       ],
       liveUrl: '/projects/ao-constructions/index.html',
     },
@@ -390,6 +407,7 @@ export default function Projects() {
       outcome: 'In development — not yet launched.',
       images: [
         '/images/projects/marketplace/marketplace-1.jpg',
+        
       ]
     },
   ];
