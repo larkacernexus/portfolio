@@ -137,7 +137,6 @@ export default function Projects() {
         '/images/projects/grading/grading-5.jpg',
         '/images/projects/grading/grading-6.jpg',
         '/images/projects/grading/grading-7.jpg',
-
       ]
     },
     {
@@ -239,6 +238,30 @@ export default function Projects() {
       ],
       liveUrl: 'https://dental-clinic-website.larkacer-nexus.com',
     },
+    {
+      id: 'elementary-school-website',
+      title: 'Elementary School Website',
+      description: 'Modern, warm elementary school website with enrollment showcase, campus features, bulletin board, and school visit booking.',
+      tech: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
+      features: ['Enrollment Showcase', 'Campus Features', 'Bulletin Board', 'School Visit Booking'],
+      color: '#22c55e',
+      category: 'Web',
+      client: 'Elementary School',
+      deployment: 'Web system',
+      statusLabel: 'Delivered',
+      status: 'completed',
+      image: '/images/projects/elementary/elementary-1.jpg',
+      fullDescription: 'A modern, warm elementary school website designed to showcase the school to prospective parents and students. Features include enrollment highlights, campus amenities showcase, a bulletin board for announcements, and online booking for school visits. Built with Next.js, Tailwind CSS, and Framer Motion for smooth animations.',
+      challenges: 'Creating a welcoming, trustworthy design that appeals to parents while clearly presenting enrollment information.',
+      outcome: 'Delivered as a live, responsive website for the school.',
+      images: [
+        '/images/projects/elementary/elementary-1.jpg',
+        '/images/projects/elementary/elementary-2.jpg',
+        '/images/projects/elementary/elementary-3.png',
+        '/images/projects/elementary/elementary-4.png',
+      ],
+      liveUrl: 'https://elementary-school-website.larkacer-nexus.com',
+    },
 
     // ============ DESKTOP ============
     {
@@ -307,7 +330,8 @@ export default function Projects() {
       fullDescription: 'Nimbus & Co. is a luxury pet essentials landing page built with vanilla HTML, CSS, and JavaScript. It features a fullscreen autoplay video hero, floating animated particles, a curated product showcase with hover effects, customer testimonials, a newsletter lead-capture funnel, and an embedded Google Map. Fully responsive and dependency-free aside from CDN-loaded fonts and icons.',
       challenges: 'Creating a premium, editorial feel using only vanilla HTML/CSS/JS while keeping the page lightweight and animation-rich.',
       outcome: 'A fully responsive, animation-rich landing page with zero build step — ready to deploy as a static file.',
-      images: ['/images/projects/nimbus/nimbus-1.jpg',
+      images: [
+        '/images/projects/nimbus/nimbus-1.jpg',
         '/images/projects/nimbus/nimbus-2.jpg',
         '/images/projects/nimbus/nimbus-3.jpg',
         '/images/projects/nimbus/nimbus-4.jpg',
@@ -407,7 +431,6 @@ export default function Projects() {
       outcome: 'In development — not yet launched.',
       images: [
         '/images/projects/marketplace/marketplace-1.jpg',
-        
       ]
     },
   ];
