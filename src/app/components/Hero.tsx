@@ -32,7 +32,7 @@ export default function Hero() {
       </div>
 
       {/* Hero content */}
-      <div className="relative max-w-7xl mx-auto w-full px-6 sm:px-8 lg:px-12 pt-24 pb-16">
+      <div className="relative max-w-7xl mx-auto w-full px-6 sm:px-8 lg:px-12 pt-32 pb-16">
         {/* Top: "Hi, I'm" */}
         <p
           className="text-center text-sm tracking-wide mb-2"
@@ -61,15 +61,15 @@ export default function Hero() {
         </div>
 
         {/* Portrait overlapping the name — clickable, links to #projects */}
-        <div className="relative -mt-40 md:-mt-72 lg:-mt-96 flex justify-center">
+        <div className="relative -mt-24 md:-mt-48 lg:-mt-64 flex justify-center">
           <a
             href="#projects"
             aria-label="Jump to projects"
-            className="group relative block w-[70%] max-w-md md:max-w-lg lg:max-w-xl cursor-pointer"
+            className="group relative block w-[60%] max-w-sm md:max-w-md lg:max-w-lg cursor-pointer"
           >
             {/* Bottom fade to background */}
             <div
-              className="absolute inset-x-0 bottom-0 h-2/5 z-20 pointer-events-none"
+              className="absolute inset-x-0 bottom-0 h-1/3 z-20 pointer-events-none"
               style={{
                 background:
                   'linear-gradient(to top, var(--bg-primary) 15%, transparent 100%)',
@@ -94,7 +94,7 @@ export default function Hero() {
 
         {/* Bottom row: left text/CTA, right contact pills */}
         <div className="relative -mt-10 md:-mt-20 lg:-mt-28 grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
-          {/* Left — YOUR ORIGINAL COPY */}
+          {/* Left — headline + CTA */}
           <div className="max-w-sm">
             <h2
               className="text-2xl md:text-3xl font-bold mb-3"
@@ -123,9 +123,7 @@ export default function Hero() {
               className="max-w-md text-sm leading-relaxed mb-8"
               style={{ color: 'var(--text-muted)' }}
             >
-              I build business management systems and web apps for clinics,
-              schools, and small businesses — shipping faster with AI-assisted
-              development.
+              I build websites and mobile apps for businesses and startups — shipping faster with AI-assisted development.
             </p>
 
             <div className="flex flex-wrap gap-3">
