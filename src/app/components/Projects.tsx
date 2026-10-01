@@ -632,7 +632,7 @@ export default function Projects() {
                         className="text-sm font-medium inline-flex items-center gap-1 transition-colors hover:opacity-70"
                         style={{ color: '#22c55e' }}
                       >
-                        Live Demo <FaExternalLinkAlt className="w-3 h-3" />
+                        Visit Site <FaExternalLinkAlt className="w-3 h-3" />
                       </a>
                     )}
                   </div>
