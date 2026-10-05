@@ -8,7 +8,7 @@ export default function Skills() {
     {
       icon: FaCode,
       title: 'Frontend',
-      skills: ['React', 'Next.js', 'Vue.js', 'Tailwind CSS', 'JavaScript', 'TypeScript'],
+      skills: ['React', 'Inertia.js', 'Next.js', 'Vue.js', 'Tailwind CSS', 'JavaScript', 'TypeScript'],
       color: '#06b6d4'
     },
     {

@@ -9,7 +9,7 @@ export default function Services() {
       icon: FaCode,
       title: 'Web App Development',
       description: 'Full-stack web applications built end-to-end — from database design to deployed frontend.',
-      features: ['Laravel', 'React / Next.js', 'Tailwind CSS'],
+      features: ['Laravel', 'Inertia.js', 'React / Next.js', 'Tailwind CSS'],
       color: '#6366f1'
     },
     {

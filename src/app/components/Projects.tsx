@@ -24,7 +24,7 @@ export default function Projects() {
       id: 'barangay-management-system',
       title: 'Barangay Management System',
       description: 'Digitized certificate issuance, resident records, and online transaction processing for a local barangay office. Built with Laravel and React.',
-      tech: ['Laravel', 'React', 'MySQL', 'Tailwind CSS'],
+      tech: ['Laravel', 'Inertia.js', 'React', 'MySQL', 'Tailwind CSS'],
       features: ['Certificate Issuance', 'Resident Records', 'Transaction Processing'],
       color: '#6366f1',
       category: 'Web',
@@ -264,11 +264,11 @@ export default function Projects() {
     },
 
     // ============ DESKTOP ============
-    {
+   {
       id: 'moraineco-calibration-system',
       title: 'Moraineco Calibration Inventory System',
       description: 'Desktop inventory and calibration tracking system for a calibration services business — equipment records, calibration schedules, and certificate generation.',
-      tech: ['Electron', 'React', 'Laravel', 'MySQL', 'Tailwind CSS'],
+      tech: ['Electron', 'React', 'Inertia.js', 'Laravel', 'MySQL', 'Tailwind CSS'],
       features: ['Equipment Records', 'Calibration Scheduling', 'Certificate Generation', 'Client Management'],
       color: '#14b8a6',
       category: 'Desktop',
@@ -417,7 +417,7 @@ export default function Projects() {
       id: 'student-marketplace',
       title: 'Student Marketplace',
       description: 'Marketplace platform for students to buy and sell items within their campus. Personal startup project — development paused pending funding.',
-      tech: ['Laravel', 'React', 'MySQL'],
+      tech: ['Laravel', 'Inertia.js', 'React', 'MySQL'],
       features: ['Listings', 'Buyer/Seller Accounts', 'Campus-Only Marketplace'],
       color: '#8b5cf6',
       category: 'Personal',

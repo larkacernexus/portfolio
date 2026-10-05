@@ -4,7 +4,7 @@ import {
   SiJavascript, SiTypescript, SiPhp, SiReact, SiVuedotjs, 
   SiLaravel, SiNextdotjs, SiTailwindcss, SiMysql, SiPostgresql,
   SiGit, SiDocker, SiPython, SiNodedotjs, SiFirebase, SiFlutter,
-  SiHtml5, SiCss, SiBootstrap, SiElectron
+  SiHtml5, SiCss, SiBootstrap, SiElectron, SiInertia
 } from 'react-icons/si';
 import { FaRobot } from 'react-icons/fa';
 import { motion } from 'framer-motion';
@@ -12,6 +12,7 @@ import { motion } from 'framer-motion';
 export default function TechStack() {
   const productionTechs = [
     { icon: SiLaravel, name: 'Laravel', color: '#FF2D20' },
+    { icon: SiInertia, name: 'Inertia.js', color: '#9553E9' },
     { icon: SiReact, name: 'React', color: '#61DAFB' },
     { icon: SiNextdotjs, name: 'Next.js', color: '#ffffff' },
     { icon: SiJavascript, name: 'JavaScript', color: '#F7DF1E' },
