@@ -4,13 +4,12 @@ import { FaCode, FaRocket, FaUsers, FaBrain } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 export default function About() {
-  // Honest stats based on the real project list:
-  // 10 systems built · 10 clients served · 4 platforms · 3 years coding
+  // Professional details aligned with the current résumé.
   const stats = [
-    { icon: FaCode, label: 'Systems Built', value: '10', color: '#6366f1' },
-    { icon: FaUsers, label: 'Clients Served', value: '10', color: '#8b5cf6' },
-    { icon: FaRocket, label: 'Platforms', value: '4', color: '#ec4899' },
-    { icon: FaBrain, label: 'Years Coding', value: '3', color: '#06b6d4' },
+    { icon: FaCode, label: 'Production Systems', value: '11', color: '#6366f1' },
+    { icon: FaUsers, label: 'Developing Since', value: '2023', color: '#8b5cf6' },
+    { icon: FaRocket, label: 'Platforms', value: '3', color: '#ec4899' },
+    { icon: FaBrain, label: 'Hours / Week', value: '40+', color: '#06b6d4' },
   ];
 
   return (
@@ -32,7 +31,7 @@ export default function About() {
               About <span className="gradient-text">Me</span>
             </h2>
             <p className="max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-              Solo full-stack developer · Founder of Larkacer Nexus
+              Independent developer · Open to long-term remote employment
             </p>
           </motion.div>
         </div>
@@ -48,21 +47,19 @@ export default function About() {
               Full-Stack Developer &amp; Systems Builder
             </h3>
             <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
-              I&apos;m a Philippines-based developer with 3 years of hands-on experience building
+              I&apos;m a Philippines-based developer working independently since 2023, building
               web applications, desktop tools, and mobile apps for real clients — schools,
               small businesses, sari-sari stores, and community organizations.
             </p>
             <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
-              As the <strong style={{ color: 'var(--text-primary)' }}>founder of Larkacer Nexus</strong>,
-              I work directly with every client. No account managers, no offshore handoffs —
-              you talk to the person writing the code.
+              I use <strong style={{ color: 'var(--text-primary)' }}>Larkacer-Nexus IT Solutions</strong> as my professional brand since January 2026, not as a separate employer or agency. My portfolio represents my own independent development work. I am seeking a long-term role within a collaborative engineering team.
             </p>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               I focus on practical problems: digitizing manual processes, connecting APIs and
-              databases, and using AI tools to ship faster than a traditional workflow. I care
-              about systems that actually run in production, not demos.
+              databases, and using AI tools to support implementation, debugging and review. I review AI-generated code before release, protect client data, sign NDAs and hand over client systems and code.
             </p>
 
+            <p className="text-sm leading-relaxed mt-4" style={{ color: 'var(--text-secondary)' }}>BS Information Technology · Central Mindanao University · 2023</p>
             <div className="mt-6 flex flex-wrap gap-2">
               <span className="text-xs px-3 py-1 border" style={{
                 color: 'var(--text-muted)',

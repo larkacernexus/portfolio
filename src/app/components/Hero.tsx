@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import {
   EnvelopeIcon,
@@ -9,10 +10,21 @@ import {
 import ViewsCounter from './ViewsCounter';
 
 export default function Hero() {
+  const stage = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = stage.current;
+    if (!el || !window.matchMedia('(hover: hover) and (pointer: fine)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let frame = 0, x = 0, y = 0, tx = 0, ty = 0;
+    const move = (e: PointerEvent) => { const r = el.getBoundingClientRect(); tx = (e.clientX-r.left)/r.width-.5; ty = (e.clientY-r.top)/r.height-.5; };
+    const reset = () => { tx = 0; ty = 0; };
+    const tick = () => { x += (tx-x)*.08; y += (ty-y)*.08; el.style.setProperty('--mx', `${x*36}px`); el.style.setProperty('--my', `${y*24}px`); frame = requestAnimationFrame(tick); };
+    el.addEventListener('pointermove', move); el.addEventListener('pointerleave', reset); frame = requestAnimationFrame(tick);
+    return () => { cancelAnimationFrame(frame); el.removeEventListener('pointermove', move); el.removeEventListener('pointerleave', reset); };
+  }, []);
   return (
-    <section
+    <section ref={stage}
       id="home"
-      className="relative overflow-hidden"
+      className="relative overflow-hidden jm-hero"
       style={{ background: 'var(--bg-primary)', color: 'var(--text-primary)' }}
     >
       {/* Background gradients */}
@@ -35,11 +47,12 @@ export default function Hero() {
           className="text-center text-xs sm:text-sm tracking-wide mb-1 sm:mb-2"
           style={{ color: 'var(--text-muted)' }}
         >
-          Hi, I&apos;m
+          INDEPENDENT DEVELOPER / PHILIPPINES
         </p>
 
+        <div className="jm-coordinate" aria-hidden="true">01 / DIGITAL ENGINEERING <span>PORTFOLIO / 2026</span></div>
         {/* Giant name */}
-        <div className="relative text-center select-none">
+        <div className="relative text-center select-none jm-name">
           <h1
             className="font-black leading-[0.85] text-[15vw] sm:text-[13vw] md:text-[10rem] lg:text-[12rem] tracking-tight uppercase"
             style={{
@@ -58,7 +71,7 @@ export default function Hero() {
         </div>
 
         {/* Portrait — reduced overlap on mobile */}
-        <div className="relative -mt-12 sm:-mt-20 md:-mt-48 lg:-mt-64 flex justify-center">
+        <div className="jm-portrait relative -mt-12 sm:-mt-20 md:-mt-48 lg:-mt-64 flex justify-center">
           <a
             href="#projects"
             aria-label="Jump to projects"
@@ -89,7 +102,7 @@ export default function Hero() {
         </div>
 
         {/* Bottom row — LESS negative margin on mobile */}
-        <div className="relative mt-4 sm:-mt-6 md:-mt-20 lg:-mt-28 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-end">
+        <div className="jm-bottom relative mt-4 sm:-mt-6 md:-mt-20 lg:-mt-28 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-end">
           {/* Left */}
           <div className="max-w-sm mx-auto md:mx-0 text-center md:text-left">
             <h2
@@ -103,7 +116,7 @@ export default function Hero() {
               className="text-[10px] sm:text-xs md:text-sm tracking-widest uppercase mb-4 sm:mb-5"
               style={{ color: 'var(--text-muted)' }}
             >
-              AI-Assisted Workflow · Founder of{' '}
+              Creative Engineering · Founder of{' '}
               <a
                 href="https://www.larkacer-nexus.com"
                 target="_blank"
@@ -119,8 +132,7 @@ export default function Hero() {
               className="text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8"
               style={{ color: 'var(--text-muted)' }}
             >
-              I build websites and mobile apps for businesses and startups —
-              shipping faster with AI-assisted development.
+              I build business systems, modern web applications and immersive digital experiences. From backend architecture to interactive interfaces.
             </p>
 
             <div className="flex flex-wrap gap-3 justify-center md:justify-start">

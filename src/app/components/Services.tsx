@@ -56,7 +56,7 @@ export default function Services() {
               Building web systems and solving practical problems with code.
             </p>
             <p className="max-w-2xl mx-auto text-xs mt-2" style={{ color: 'var(--text-muted)' }}>
-              Founder &amp; Developer at{' '}
+              Independent development under the professional brand{' '}
               <a 
                 href="https://www.larkacer-nexus.com" 
                 target="_blank" 
@@ -64,7 +64,7 @@ export default function Services() {
                 className="hover:underline font-medium"
                 style={{ color: 'var(--text-secondary)' }}
               >
-                Larkacer Nexus
+                Larkacer-Nexus IT Solutions
               </a>
             </p>
           </motion.div>

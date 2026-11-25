@@ -6,44 +6,31 @@ import { motion } from 'framer-motion';
 export default function Experience() {
   const experiences = [
     {
-      title: 'Founder & Full-Stack Developer',
-      company: 'Larkacer Nexus IT Solutions',
-      period: 'Jan 2026 – Present',
-      description: [
-        'Build full-stack web applications using Laravel, React, and MySQL for local clients',
-        'Handle the full development lifecycle — requirements, database design, development, and deployment',
-        'Delivered systems for clinics, schools, small businesses, and community organizations',
-        'Use AI-assisted workflows (Claude, ChatGPT, GitHub Copilot) to speed up development and debugging'
-      ],
-      achievements: ['Solo Founder', 'Full-Stack Delivery', 'AI-Assisted Workflow'],
-      icon: FaBuilding,
-      iconColor: '#818cf8'
-    },
-    {
-      title: 'Freelance Web & Software Developer',
-      company: 'Self-Employed / Independent Projects',
+      title: 'Independent Full-Stack Developer (Contract)',
+      company: 'Independent practice · Larkacer-Nexus IT Solutions (brand since Jan 2026)',
       period: '2023 – Present',
       description: [
         'Delivered 11 projects across web, desktop (Electron), and mobile (Flutter) platforms',
         'Built custom systems including POS, inventory management, and school grade portals',
         'Managed complete project lifecycles — from client consultation to post-launch support',
+        'Established Larkacer-Nexus IT Solutions as a personal professional brand, not a separate operating employer',
         'Integrated frontend applications with Laravel backends and REST APIs'
       ],
-      achievements: ['11 Projects Delivered', '9+ Clients Served', '3 Years Experience'],
+      achievements: ['11 Projects Delivered', 'Web / Desktop / Mobile', 'End-to-End Delivery'],
       icon: FaLaptop,
       iconColor: '#10b981'
     },
     {
       title: 'Part-Time Instructor',
-      company: 'Irene B. Antonio College',
+      company: 'Irene B. Antonio College of Mindanao',
       period: 'Jan 2025 – May 2025',
       description: [
-        'Taught web development and programming fundamentals to undergraduate students',
+        'Taught programming fundamentals, web development and database concepts',
         'Developed curriculum and learning materials for IT courses',
         'Mentored students on real-world projects and industry practices',
-        'Conducted workshops on modern web technologies and frameworks'
+        'Served as a Capstone Thesis Panelist, providing technical feedback on student research'
       ],
-      achievements: ['Curriculum Development', 'Student Mentorship', 'Workshop Facilitation'],
+      achievements: ['Curriculum Development', 'Student Mentorship', 'Capstone Thesis Panelist'],
       icon: FaChalkboardTeacher,
       iconColor: '#f59e0b'
     },
@@ -53,7 +40,7 @@ export default function Experience() {
       period: 'Aug 2024 – Aug 2025',
       description: [
         'Built and maintained the official website for Central Bukidnon Institute',
-        'Developed a grade and account system so students could view their records online',
+        'Developed a Laravel grade and account system so students could view their records online',
         'Implemented responsive design and a user-friendly interface',
         'Managed content updates and provided technical support for staff'
       ],

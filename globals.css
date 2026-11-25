@@ -1,13 +1,4 @@
-/* Prevent blue tap-highlight flash on mobile */
-* {
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Hide scrollbar on filter pills / thumbnails strip */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{box-sizing:border-box}html{margin:0;background:#07090d;color:#edf1f5;scrollbar-width:thin;scrollbar-color:#7774a4 #07090d}body{margin:0;font-family:Arial,Helvetica,sans-serif}button,a{font:inherit;color:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid #b8d3e8;outline-offset:5px}button:disabled{opacity:.25;cursor:default}

@@ -19,6 +19,26 @@ export default function Projects() {
   const categories = ['all', 'Web', 'Desktop', 'Mobile', 'HTML Sites', 'Personal'];
 
   const projects = [
+    {
+      id: 'fitlife-fitness-gym',
+      title: 'FITLIFE Fitness Gym',
+      description: 'Immersive fitness website with cinematic scroll-driven touring, interactive 3D equipment and dedicated trainer experiences.',
+      tech: ['Next.js', 'React', 'TypeScript', 'GSAP', 'Three.js', 'Tailwind CSS'],
+      features: ['Interactive Trainer Showcase', 'Scroll-driven Animation', '3D Equipment', 'Responsive Layout'],
+      color: '#38bdf8',
+      category: 'Web',
+      client: 'Fitness website showcase',
+      deployment: 'Public website',
+      statusLabel: 'Live showcase',
+      status: 'completed',
+      image: '',
+      fullDescription: 'An immersive fitness website exploring cinematic storytelling through scroll-controlled video, dedicated page animations and interactive 3D gym equipment. The trainers page is available as a live demonstration.',
+      challenges: 'Coordinating scroll animations, responsive layouts and 3D rendering without trapping normal page navigation.',
+      outcome: 'A publicly accessible interactive website showcase.',
+      images: [],
+      liveUrl: 'https://fitlifegym.larkacer-nexus.com/trainers',
+    },
+
     // ============ WEB SYSTEMS ============
     {
       id: 'barangay-management-system',
@@ -481,15 +501,15 @@ export default function Projects() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: 'var(--text-primary)' }}>
-            Selected <span className="gradient-text">Work</span>
+        <div className="jm-work-heading mb-16">
+          <h2 className="jm-work-title font-black mb-4" style={{ color: 'var(--text-primary)' }}>
+            <span className="jm-work-index">02 / PROJECT ARCHIVE</span>Selected <span className="gradient-text">Work.</span>
           </h2>
           <p className="max-w-2xl mx-auto text-sm" style={{ color: 'var(--text-secondary)' }}>
             Web systems, desktop tools, and mobile apps — built for businesses, schools, and local organizations.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-3 mt-8">
+          <div className="flex flex-wrap gap-3 mt-8">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -518,28 +538,33 @@ export default function Projects() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="portfolio-project-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="card-modern overflow-hidden relative group cursor-pointer flex flex-col"
+                className="portfolio-project-card card-modern overflow-hidden relative group flex flex-col"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                onClick={() => openModal(project)}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ y: -4 }}
               >
-                <div className="relative w-full h-48 overflow-hidden bg-neutral-800">
-                  {project.image ? (
+                <div className="relative w-full aspect-[16/10] overflow-hidden bg-neutral-800">
+                  {project.id === 'fitlife-fitness-gym' ? (
+                    <div className="jm-fitlife w-full h-full flex flex-col justify-center p-6 text-white">
+                      <span className="text-xs tracking-widest text-sky-300">INTERACTIVE WEB EXPERIENCE</span>
+                      <strong className="jm-fitlife-name font-black mt-3">FITLIFE</strong><div className="jm-barbell" aria-hidden="true"><i/><i/><i/><i/></div>
+                      <span className="text-sm text-sky-300">FITNESS GYM</span>
+                    </div>
+                  ) : project.image ? (
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      unoptimized={project.image?.startsWith('https://')}
+                      unoptimized={project.image?.startsWith('https://') || project.image?.endsWith('.svg')}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">

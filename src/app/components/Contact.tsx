@@ -14,15 +14,15 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formState);
-    alert('Thank you for your message! I\'ll get back to you soon.');
-    setFormState({ name: '', email: '', message: '' });
+    const subject = encodeURIComponent(`Portfolio inquiry from ${formState.name}`);
+    const body = encodeURIComponent(`${formState.message}\n\nFrom: ${formState.name} (${formState.email})`);
+    window.location.href = `mailto:zuluetajanndhellemarth@gmail.com?subject=${subject}&body=${body}`;
   };
 
   const contactInfo = [
     { icon: EnvelopeIcon, label: 'Email', value: 'Zuluetajanndhellemarth@gmail.com', href: 'mailto:Zuluetajanndhellemarth@gmail.com', color: '#6366f1' },
-    { icon: PhoneIcon, label: 'Phone', value: '0965 933 4337', href: 'tel:+639659334337', color: '#8b5cf6' },
-    { icon: MapPinIcon, label: 'Location', value: 'City of Valencia, Philippines', href: null, color: '#ec4899' },
+    { icon: PhoneIcon, label: 'Phone', value: '+63 965 933 4337', href: 'tel:+639659334337', color: '#8b5cf6' },
+    { icon: MapPinIcon, label: 'Location', value: 'Valencia City, Bukidnon, Philippines', href: null, color: '#ec4899' },
   ];
 
   return (
@@ -110,14 +110,16 @@ export default function Contact() {
                 <span className="font-medium">Remote Ready</span>
               </div>
               <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
-                Fiber · Backup Power · Dedicated Workspace
+                200 Mbps fiber · 5G backup · UPS and portable power station (4–6 hours)
               </p>
             </div>
 
+            <p className="jm-availability"><span aria-hidden="true"/> Open to full-time remote engineering roles · 40+ hrs/week</p>
+            <p className="text-xs mt-3 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>Private home office · Multi-core workstation · Dual monitors · HD webcam · Noise-cancelling headset. Flexible overlap with US (EST/PST), UK (GMT) and Australia (AEST).</p>
             {/* Larkacer Nexus */}
             <div className="mt-4 pt-4 border-t" style={{ borderColor: 'var(--border-color)' }}>
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                Founder & Lead Architect at{' '}
+                Personal professional brand:{' '}
                 <a 
                   href="https://www.larkacer-nexus.com" 
                   target="_blank" 
@@ -125,7 +127,7 @@ export default function Contact() {
                   className="font-medium hover:underline"
                   style={{ color: 'var(--text-secondary)' }}
                 >
-                  Larkacer Nexus
+                  Larkacer-Nexus IT Solutions
                 </a>
               </p>
             </div>
@@ -207,7 +209,7 @@ export default function Contact() {
                 type="submit"
                 className="w-full px-6 py-2.5 gradient-bg text-white text-sm font-medium transition-all duration-200 hover:opacity-85"
               >
-                Send Message
+                Open Email Draft
               </button>
             </form>
           </motion.div>

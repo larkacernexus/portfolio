@@ -1,0 +1,54 @@
+/* Editorial portfolio design — scoped to homepage components */
+.portfolio-shell { max-width: 1280px; margin: auto; padding-inline: clamp(24px,5vw,72px); }
+.portfolio-hero { background: radial-gradient(ellipse at 80% 30%,#64748b18,transparent 55%),var(--bg-primary); padding-top: 120px; }
+.portfolio-hero-grid { display:grid; grid-template-columns:1.35fr .85fr; align-items:center; gap:clamp(30px,6vw,90px); min-height: 570px; padding-bottom:60px; }
+.portfolio-kicker { font-size:11px; font-weight:700; letter-spacing:.2em; color:#818cf8; margin-bottom:28px; }
+.portfolio-hero h1 { font-size:clamp(46px,6.8vw,100px); line-height:.99; letter-spacing:-.075em; font-weight:800; }
+.portfolio-hero h1 em { font-style:normal; color:#818cf8; }
+.portfolio-intro { max-width:520px; font-size:17px; line-height:1.8; color:var(--text-secondary); margin:28px 0; }
+.portfolio-actions,.portfolio-social { display:flex; align-items:center; flex-wrap:wrap; gap:14px; }
+.portfolio-primary,.portfolio-secondary { padding:15px 22px; border-radius:8px; font-size:14px; font-weight:700; transition:transform .25s,background .25s; }
+.portfolio-primary { background:#4f46e5; color:white; }
+.portfolio-secondary { border:1px solid var(--border-color); color:var(--text-primary); }
+.portfolio-primary:hover,.portfolio-secondary:hover { transform:translateY(-3px); }
+.portfolio-social { margin-top:32px; color:var(--text-secondary); font-size:12px; }
+.portfolio-social svg { font-size:20px; }
+.portfolio-portrait { position:relative; border:1px solid var(--border-color); border-radius:18px; overflow:hidden; background:linear-gradient(145deg,#64748b22,#818cf822); }
+.portfolio-portrait img { width:100%; height:clamp(340px,38vw,510px); object-fit:contain; object-position:bottom; }
+.portfolio-portrait-label { position:absolute; top:20px; left:20px; font-size:10px; letter-spacing:.15em; color:var(--text-secondary); }
+.portfolio-portrait-caption { padding:20px; display:grid; gap:6px; border-top:1px solid var(--border-color); background:var(--bg-primary); }
+.portfolio-portrait-caption span { font-size:12px; color:var(--text-secondary); }
+.portfolio-strip { display:flex; justify-content:space-between; gap:12px; border-top:1px solid var(--border-color); padding-block:20px; font-size:10px; letter-spacing:.13em; color:var(--text-secondary); }
+#projects { scroll-margin-top:64px; }
+.portfolio-project-grid .portfolio-project-card { border-radius:16px; border:1px solid var(--border-color); }
+.portfolio-project-card:first-child { grid-column:span 1; }
+.portfolio-project-card:focus-within { outline:2px solid #818cf8; outline-offset:3px; }
+@media(min-width:1024px) { .portfolio-project-card:first-child { grid-column:span 2; } .portfolio-project-card:first-child > div:first-child { aspect-ratio: 2.2; } }
+@media(max-width:760px) { .portfolio-hero { padding-top:96px; } .portfolio-hero-grid { grid-template-columns:1fr; min-height:0; padding-bottom:32px; } .portfolio-portrait { max-width:420px; } .portfolio-strip span:nth-child(2) { display:none; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto!important; } .portfolio-primary,.portfolio-secondary { transition:none; } }
+
+/* Personal identity / cinematic stage */
+.jm-hero { --mx:0px; --my:0px; isolation:isolate; }
+.jm-hero::before { content:""; position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse at 50% 42%,#8b5cf622,transparent 48%), repeating-linear-gradient(90deg,transparent 0 calc(25% - 1px),#818cf810 calc(25% - 1px) 25%); }
+.jm-coordinate { display:flex; justify-content:space-between; color:var(--text-secondary); font:10px/1.5 monospace; letter-spacing:.16em; margin:12px 0 22px; }
+.jm-name { transform:translate(calc(var(--mx)*-.65),calc(var(--my)*-.65)); }
+.jm-name h1 { animation:jm-type-in 1s cubic-bezier(.2,.8,.2,1) both; }
+.jm-name h1:first-child { font-size:clamp(38px,11.5vw,190px); letter-spacing:-.065em; }
+.jm-name h1:nth-child(2) { font-size:clamp(65px,16vw,260px); animation-delay:.12s; letter-spacing:-.065em; }
+.jm-portrait { transform:translate(var(--mx),var(--my)); }
+.jm-portrait a { animation:jm-portrait-in 1.3s .15s both; }
+.jm-bottom { animation:jm-type-in .9s .35s both; }
+@keyframes jm-type-in { from { opacity:0; translate:0 35px; } to { opacity:1; translate:0 0; } }
+@keyframes jm-portrait-in { from { opacity:0; scale:.94; } to { opacity:1; scale:1; } }
+.jm-work-heading { border-top:1px solid var(--border-color); padding-top:28px; }
+.jm-work-index { display:block; font:600 11px/1.5 monospace; letter-spacing:.2em; color:var(--text-secondary); margin-bottom:24px; }
+.jm-work-title { font-size:clamp(48px,9vw,132px); line-height:.9; letter-spacing:-.07em; }
+.jm-fitlife { position:relative; isolation:isolate; overflow:hidden; background:radial-gradient(ellipse at 80% 50%,#125a8b,transparent 65%),#080e19; }
+.jm-fitlife::before { content:""; position:absolute; inset:0; z-index:-1; background:repeating-linear-gradient(90deg,transparent 0 39px,#ffffff0b 40px),repeating-linear-gradient(0deg,transparent 0 39px,#ffffff0b 40px); }
+.jm-fitlife-name { font-size:clamp(40px,6vw,92px); line-height:1; letter-spacing:-.07em; z-index:1; }
+.jm-barbell { position:absolute; right:8%; top:50%; width:45%; height:10px; border-radius:6px; background:linear-gradient(#a7bbcf,#35475c); transform:rotate(-35deg); transition:transform .7s cubic-bezier(.2,.8,.2,1); z-index:-1; }
+.jm-barbell i { position:absolute; top:50%; width:13%; height:85px; transform:translateY(-50%); border:1px solid #6d9bbd; border-radius:7px; background:linear-gradient(90deg,#142436,#38546c,#101c2b); box-shadow:5px 8px 20px #0008; }
+.jm-barbell i:nth-child(1){left:0;height:65px}.jm-barbell i:nth-child(2){left:13%}.jm-barbell i:nth-child(3){right:13%}.jm-barbell i:nth-child(4){right:0;height:65px}
+.portfolio-project-card:hover .jm-barbell { transform:rotate(-18deg) scale(1.1); }
+@media(max-width:767px){.jm-coordinate{font-size:8px;letter-spacing:.06em}.jm-name h1:first-child{font-size:12vw}.jm-name h1:nth-child(2){font-size:19vw}.jm-barbell i{height:55px}.jm-barbell i:nth-child(1),.jm-barbell i:nth-child(4){height:40px}}
+@media(prefers-reduced-motion:reduce){.jm-name,.jm-portrait{transform:none}.jm-name h1,.jm-portrait a,.jm-bottom{animation:none}.jm-barbell{transition:none}}

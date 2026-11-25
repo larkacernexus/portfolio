@@ -54,7 +54,7 @@ export default function Header() {
                 className="hover:opacity-70 transition-opacity"
                 style={{ color: 'var(--text-secondary)' }}
               >
-                Larkacer Nexus
+                Larkacer-Nexus IT Solutions
               </a>
             </span>
           </div>
@@ -152,7 +152,7 @@ export default function Header() {
               style={{ color: 'var(--text-muted)' }}
               onClick={() => setIsMenuOpen(false)}
             >
-              Larkacer Nexus
+              Larkacer-Nexus IT Solutions
             </a>
             <a
               href="#contact"

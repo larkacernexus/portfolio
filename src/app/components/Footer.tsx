@@ -19,7 +19,7 @@ export default function Footer() {
               className="hover:opacity-80 transition-opacity ml-1"
               style={{ color: 'var(--text-secondary)' }}
             >
-              Larkacer Nexus
+              Larkacer-Nexus IT Solutions (professional brand)
             </a>
           </p>
           
