@@ -25,3 +25,22 @@
 @keyframes case-expand{from{clip-path:inset(8% 6% round 18px);opacity:.65}to{clip-path:inset(0 round 0);opacity:1}}
 @media(max-width:760px){.atlas-dialog.atlas-preview-dialog{width:92vw;max-width:92vw;max-height:88dvh}.atlas-preview{grid-template-columns:1fr}.preview-visual{padding:16px}.atlas-preview .preview-visual img{max-height:34vh}.preview-copy{padding:24px}}
 @media(prefers-reduced-motion:reduce){.atlas-dialog.atlas-preview-dialog[open],.atlas-dialog.atlas-expanded[open],.atlas-dialog.atlas-dialog-closing[open],.atlas-dialog.atlas-preview-dialog::backdrop{animation:none;transition:none}}
+
+
+/* Single continuous preview opening. No delayed mounting or competing image animation. */
+.atlas-dialog.atlas-preview-dialog[open]:not(.atlas-dialog-closing){
+ animation: silk-grow-preview 1200ms cubic-bezier(.35,.05,.25,1) both !important;
+ transform-origin:center center; transition:none;
+}
+.atlas-dialog.atlas-preview-dialog[open]:not(.atlas-dialog-closing)::backdrop{
+ animation:preview-backdrop 1200ms ease both;
+}
+@keyframes silk-grow-preview {
+ 0% {transform:translate(var(--preview-x,0px),var(--preview-y,0px)) scale(.22);opacity:.25;}
+ 35% {opacity:.85;}
+ 100% {transform:translate(0,0) scale(1);opacity:1;}
+}
+@media(prefers-reduced-motion:reduce){
+ .atlas-dialog.atlas-preview-dialog[open]:not(.atlas-dialog-closing){animation:preview-backdrop 220ms ease both !important;}
+ .atlas-dialog.atlas-preview-dialog[open]:not(.atlas-dialog-closing)::backdrop{animation:preview-backdrop 220ms ease both;}
+}
