@@ -1,4 +1,177 @@
-export const projects = [
+export type ProjectRecord = { id: string; title: string; description: string; tech: string[]; features: string[]; color: string; category: string; client: string; deployment: string; statusLabel: string; status: string; image: string; fullDescription: string; challenges: string; outcome: string; images: string[]; liveUrl?: string; githubUrl?: string };
+export const projects: ProjectRecord[] = [
+{
+  "id": "chronos",
+  "title": "CHRONOS — Everything Through Time",
+  "description": "Interactive historical exploration and student research with a custom rule-based narrative synthesis engine.",
+  "tech": [
+    "React",
+    "JavaScript",
+    "Vite",
+    "CSS",
+    "Wikipedia API",
+    "Rule-Based NLP",
+    "Local Storage"
+  ],
+  "features": [
+    "Contextual historical questions and connected topics",
+    "Historical timelines and knowledge checks",
+    "Research notebooks and evidence collection",
+    "Multi-topic research compiler",
+    "Rule-based narrative synthesis and inline citations",
+    "Editable research drafts and print / PDF export"
+  ],
+  "color": "#d2ad68",
+  "category": "Personal",
+  "client": "Independent personal project",
+  "deployment": "Public website",
+  "statusLabel": "Live showcase · Source available",
+  "status": "completed",
+  "image": "/images/projects/chronos/cover.svg",
+  "fullDescription": "A student-centered historical learning and research workspace that retrieves online historical information, supports curiosity-driven exploration and lets students collect evidence across topics. A custom rule-based synthesis engine organizes selected excerpts, removes repetition and adds transitions and references without an external AI service. Generated drafts require student review and source verification.",
+  "challenges": "Extracting chronological context, detecting shared themes, reducing repeated evidence and preserving source references while keeping research drafts editable.",
+  "outcome": "An interactive historical research prototype with a public showcase and source repository. Synthesis is extractive and rule-based, not a trained AI model.",
+  "images": [
+    "/images/projects/chronos/cover.svg"
+  ],
+  "githubUrl": "https://github.com/LARKACER3310/chronos",
+  "liveUrl": "https://chronosa.larkacer-nexus.com/"
+},
+{
+  "id": "medmind",
+  "title": "MEDMIND",
+  "description": "Interactive medical mind maps with online knowledge retrieval, narrated lessons and portable study files.",
+  "tech": [
+    "JavaScript",
+    "Vite",
+    "SVG",
+    "Web Speech API",
+    "REST APIs"
+  ],
+  "features": [
+    "Expandable knowledge trees",
+    "Wikipedia, NLM and Europe PMC integration",
+    "Voice tutor and active recall",
+    "Native .medmind import and export",
+    "Responsive touch controls"
+  ],
+  "color": "#52d9b0",
+  "category": "Personal",
+  "client": "Independent personal project",
+  "deployment": "Public website",
+  "statusLabel": "Live showcase · Source available",
+  "status": "completed",
+  "image": "/images/projects/medmind/cover.svg",
+  "fullDescription": "A local-first medical learning prototype that turns online article sections into editable, categorized knowledge trees. Students can explore related topics, listen to explanations and save their own study files without an account. Content is educational and not clinically reviewed.",
+  "challenges": "Organizing heterogeneous source data, handling network failures and preserving editable maps across file imports.",
+  "outcome": "A portable medical study prototype with a public website and source code; live API behavior is not independently verified.",
+  "images": [
+    "/images/projects/medmind/cover.svg"
+  ],
+  "githubUrl": "https://github.com/LARKACER3310/medmind",
+  "liveUrl": "https://medmind.larkacer-nexus.com/"
+},
+{
+  "id": "anatomica",
+  "title": "ANATOMICA",
+  "description": "Interactive 3D human anatomy atlas with selectable anatomical structures and focused exploration.",
+  "tech": [
+    "JavaScript",
+    "Three.js",
+    "WebGL",
+    "GLB",
+    "Vite"
+  ],
+  "features": [
+    "Male and female anatomical models",
+    "Structure selection and inspection",
+    "Automatic camera focus",
+    "Anatomical catalog navigation"
+  ],
+  "color": "#e59b91",
+  "category": "Personal",
+  "client": "Independent personal project",
+  "deployment": "Public website",
+  "statusLabel": "Live showcase · Source available",
+  "status": "completed",
+  "image": "/images/projects/anatomica/cover.svg",
+  "fullDescription": "An educational human anatomy atlas using bundled male and female GLB models from open-anatomy-3d. The interface supports exploring anatomical structures in three dimensions with customized display materials. Model attribution is retained in the project.",
+  "challenges": "Managing detailed anatomical meshes, selection, camera framing and rendering performance.",
+  "outcome": "An interactive educational anatomy prototype with a public website and source code, not a clinical tool.",
+  "images": [
+    "/images/projects/anatomica/cover.svg"
+  ],
+  "githubUrl": "https://github.com/LARKACER3310/anatomica",
+  "liveUrl": "https://anatomica.larkacer-nexus.com/"
+},
+{
+  "id": "aether-webgl",
+  "title": "AETHER — Beyond Earth",
+  "description": "Cinematic WebGL space exploration concept with procedural planets and scroll-driven motion.",
+  "tech": [
+    "JavaScript",
+    "Three.js",
+    "WebGL",
+    "GLSL",
+    "GSAP",
+    "Vite"
+  ],
+  "features": [
+    "Procedural planet materials",
+    "Scroll-driven camera journeys",
+    "Interactive space exploration",
+    "Cinematic ambient sound"
+  ],
+  "color": "#83a9ff",
+  "category": "Personal",
+  "client": "Independent personal project",
+  "deployment": "Public website",
+  "statusLabel": "Live showcase · Source available",
+  "status": "completed",
+  "image": "/images/projects/aether-webgl/cover.svg",
+  "fullDescription": "A fictional space exploration and tourism concept built with real-time WebGL, procedural GLSL planet materials and GSAP scroll animation. The experience explores immersive digital storytelling; planetary visuals are artistic approximations, not scientific simulations.",
+  "challenges": "Balancing real-time rendering, cinematic camera movement and smooth interaction.",
+  "outcome": "An experimental immersive web experience with a public website and source code; no real bookings or payments.",
+  "images": [
+    "/images/projects/aether-webgl/cover.svg"
+  ],
+  "githubUrl": "https://github.com/LARKACER3310/aether-webgl",
+  "liveUrl": "https://aether-universe.larkacer-nexus.com/"
+},
+{
+  "id": "logos-bible",
+  "title": "LOGOS — The Living Word",
+  "description": "Interactive Bible reading, Scripture discovery, knowledge challenges, reflection journal and ministry planning.",
+  "tech": [
+    "JavaScript",
+    "Vite",
+    "CSS",
+    "REST API",
+    "Local Storage"
+  ],
+  "features": [
+    "66-book Scripture library and chapter reader",
+    "Verse search and saved verses",
+    "Bible knowledge challenges and reflection journal",
+    "Curated ministry resources and message finder",
+    "Service and activity planner with downloadable plans",
+    "Responsive reading interface"
+  ],
+  "color": "#d6b477",
+  "category": "Personal",
+  "client": "Independent personal project",
+  "deployment": "Public website",
+  "statusLabel": "Live showcase",
+  "status": "completed",
+  "image": "/images/projects/logos-bible/cover.svg",
+  "fullDescription": "A Scripture-centered study and ministry workspace combining a KJV reader, discovery tools, quizzes, personal reflections and curated ministry outlines. The project uses Bible API for Scripture text and provides a responsive interface for study and preparation.",
+  "challenges": "Organizing reading, reflection and ministry workflows into a consistent interface while handling remote Scripture retrieval and responsive navigation.",
+  "outcome": "A publicly accessible Bible study and ministry portfolio concept.",
+  "images": [
+    "/images/projects/logos-bible/cover.svg"
+  ],
+  "liveUrl": "https://logos-bible.larkacer-nexus.com/"
+},
     {
       id: 'fitlife-fitness-gym',
       title: 'FITLIFE Fitness Gym',

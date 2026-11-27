@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import ProjectModal from './ProjectModal';
 import LivePreviewModal from './LivePreviewModal';
+import { projects as sharedProjects } from './projectData';
 
 export default function Projects() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -19,6 +20,7 @@ export default function Projects() {
   const categories = ['all', 'Web', 'Desktop', 'Mobile', 'HTML Sites', 'Personal'];
 
   const projects = [
+    ...sharedProjects.filter(p => ['chronos', 'medmind', 'anatomica', 'aether-webgl', 'logos-bible'].includes(p.id)),
     {
       id: 'fitlife-fitness-gym',
       title: 'FITLIFE Fitness Gym',
