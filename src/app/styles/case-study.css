@@ -44,3 +44,5 @@
  .atlas-dialog.atlas-preview-dialog[open]:not(.atlas-dialog-closing){animation:preview-backdrop 220ms ease both !important;}
  .atlas-dialog.atlas-preview-dialog[open]:not(.atlas-dialog-closing)::backdrop{animation:preview-backdrop 220ms ease both;}
 }
+
+.case-preview-note{font-size:12px;color:#b9c5d6;line-height:1.6;margin:12px 0 24px}

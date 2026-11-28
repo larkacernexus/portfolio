@@ -1,6 +1,156 @@
 export type ProjectRecord = { id: string; title: string; description: string; tech: string[]; features: string[]; color: string; category: string; client: string; deployment: string; statusLabel: string; status: string; image: string; fullDescription: string; challenges: string; outcome: string; images: string[]; liveUrl?: string; githubUrl?: string };
 export const projects: ProjectRecord[] = [
 {
+  "id": "elementary-school-website",
+  "title": "Nexus Elementary — School Website & Portals",
+  "description": "A colorful, child-friendly elementary school website with interactive academic pathways, admissions guidance and separate school role portals.",
+  "tech": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Framer Motion",
+    "CSS 3D"
+  ],
+  "features": [
+    "Playful school branding, layered CSS 3D classroom artwork and motion",
+    "Interactive grade-band and learning program explorer",
+    "Admissions planner with downloadable inquiry drafts",
+    "Rule-based Family Guide and mobile navigation",
+    "Campus, faculty, calendar, news and family resource pages",
+    "Separate parent, teacher and administrator demo portals"
+  ],
+  "color": "#2f6bff",
+  "category": "Web",
+  "client": "Elementary school website demonstration",
+  "deployment": "GitHub source updated · Website deployment unverified",
+  "statusLabel": "Redesigned prototype · Demo data",
+  "status": "completed",
+  "image": "/images/projects/elementary-redesign/home.webp",
+  "fullDescription": "Nexus Elementary is a school-focused Next.js demonstration for prospective families and school staff. Its redesigned public pages use bright blue, pink, green and yellow accents, layered CSS 3D-style learning illustrations and animated cards rather than a clinical interface. Parents can explore grade levels, prepare downloadable admissions or contact inquiries, and use the local Family Guide to find school information. The existing role-specific workspaces are demonstration interfaces; the newest revision updates the portal entry, not every internal dashboard. School details are illustrative. No actual enrollment, confirmed tour booking, persistent student records or live authentication is demonstrated.",
+  "challenges": "Creating a child-friendly visual identity that remains clear and trustworthy for parents, separating public storytelling from role-specific school workflows, and keeping the interactive experience lightweight using CSS depth and Framer Motion rather than a dedicated 3D engine.",
+  "outcome": "A redesigned public school website and portal entry with six new development previews. The company GitHub main branch was updated to commit 6867b16. The existing website address is retained, but the deployment of this revision has not been verified.",
+  "images": [
+    "/images/projects/elementary-redesign/home.webp",
+    "/images/projects/elementary-redesign/academics.webp",
+    "/images/projects/elementary-redesign/admissions.webp",
+    "/images/projects/elementary-redesign/portal.webp",
+    "/images/projects/elementary-redesign/mobile.webp",
+    "/images/projects/elementary-redesign/family-guide.webp"
+  ],
+  "liveUrl": "https://elementary-school-website.larkacer-nexus.com",
+  "githubUrl": "https://github.com/larkacernexus/elementary-school-website"
+},
+{
+  "id": "bright-smile-dental-system",
+  "title": "Bright Smile — Dental Clinic System",
+  "description": "Patient-facing dental website and interactive clinic operations workspace with appointment scheduling, patient directories and queue management.",
+  "tech": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS"
+  ],
+  "features": [
+    "Searchable treatment explorer and guided visit planner",
+    "Rule-based visitor assistant",
+    "Interactive appointment calendar and conflict checks",
+    "Patient directory and synchronized demo queue",
+    "Staff and patient portals with responsive navigation",
+    "Sample billing, inventory and clinical record views"
+  ],
+  "color": "#087e80",
+  "category": "Web",
+  "client": "Independent healthcare demonstration",
+  "deployment": "Next.js demonstration",
+  "statusLabel": "Interactive prototype · Demo data",
+  "status": "completed",
+  "fullDescription": "A two-sided dental clinic demonstration with a patient-friendly public website and a unified internal operations workspace. Visitors can explore treatments and prepare a visit plan, while staff can interact with sample appointments, patient profiles and queue states. The application uses simulated authentication and in-memory sample data; it is not a live patient record system and does not submit confirmed bookings.",
+  "challenges": "Maintaining a consistent clinical design across public, staff and patient screens, synchronizing sample appointment states and providing usable mobile layouts without misrepresenting demo workflows as clinical operations.",
+  "outcome": "A responsive, interactive healthcare software demonstration. Production authentication, persistent records and actual clinic bookings remain future work.",
+  "githubUrl": "https://github.com/larkacernexus/Dental-Clinic-System",
+  "images": [
+    "/images/projects/bright-smile-dental-system/preview-1.webp",
+    "/images/projects/bright-smile-dental-system/preview-2.webp",
+    "/images/projects/bright-smile-dental-system/preview-3.webp",
+    "/images/projects/bright-smile-dental-system/preview-4.webp",
+    "/images/projects/bright-smile-dental-system/preview-5.webp"
+  ],
+  "image": "/images/projects/bright-smile-dental-system/preview-1.webp"
+},
+{
+  "id": "sda-school-system",
+  "title": "SDA School — Campus Management System",
+  "description": "Role-based school management workspace with an integrated public admissions and school information website.",
+  "tech": [
+    "Laravel 12",
+    "PHP",
+    "React",
+    "Inertia.js",
+    "MySQL",
+    "Tailwind CSS",
+    "Spatie Permission"
+  ],
+  "features": [
+    "Public school information and admissions guidance",
+    "Administrator, teacher, parent and student workspaces",
+    "Learner and classroom management",
+    "Attendance and gradebook workflows",
+    "SDA school life and spiritual programs",
+    "Relational demonstration data seeder"
+  ],
+  "color": "#6ca3cc",
+  "category": "Web",
+  "client": "School management prototype",
+  "deployment": "Local Laravel / MySQL application",
+  "statusLabel": "Local prototype · Deployment pending",
+  "status": "pending",
+  "fullDescription": "An integrated Seventh-day Adventist school application with a public information website and authenticated school operations workspace. The Laravel backend supports role-scoped student records, classroom attendance and grade entry, with linked demo data for local testing. Finance, health and library circulation remain read-only in this revision. Production deployment and full integration testing are pending.",
+  "challenges": "Aligning Eloquent models to the existing schema, separating public routes from sensitive student records and enforcing role-specific classroom and guardian access.",
+  "outcome": "A revised local school management prototype with a public-facing website and seeded test records. No successful public deployment has been confirmed.",
+  "images": [
+    "/images/projects/sda-school-system/preview-1.webp"
+  ],
+  "image": "/images/projects/sda-school-system/preview-1.webp"
+},
+{
+  "id": "larkacer-nexus-studio",
+  "title": "LARKACER-NEXUS — Living Studio",
+  "description": "Founder-led software studio website with animated project showcases, searchable case studies and a built-in service assistant.",
+  "tech": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "CSS Animations",
+    "Resend"
+  ],
+  "features": [
+    "Official navy-blue branding and theme-aware logos",
+    "Interactive project showcase and searchable archive",
+    "Dedicated case studies and fullscreen galleries",
+    "Animated service panels and scroll reveals",
+    "Rule-based website assistant with contextual project questions",
+    "Service-specific contact inquiries"
+  ],
+  "color": "#9dbaff",
+  "category": "Web",
+  "client": "Own professional studio",
+  "deployment": "Studio website",
+  "statusLabel": "Studio website · Redesigned",
+  "status": "completed",
+  "fullDescription": "The professional website for Larkacer-Nexus IT Solutions, positioned as a founder-led independent software studio. Its shared project catalog powers case studies and a local website assistant that answers service and project questions without a paid AI API. The interface uses lightweight motion, responsive navigation, official branding and a contact form.",
+  "challenges": "Preserving a serious studio identity while incorporating motion, maintaining consistent project data and designing a useful deterministic assistant without unsupported pricing or delivery promises.",
+  "outcome": "A modern software studio website with an interactive visitor experience. The latest deployment and email delivery are not independently verified.",
+  "liveUrl": "https://larkacer-nexus.com/",
+  "images": [
+    "/images/projects/larkacer-nexus-studio/preview-1.webp",
+    "/images/projects/larkacer-nexus-studio/preview-2.webp",
+    "/images/projects/larkacer-nexus-studio/preview-3.webp"
+  ],
+  "image": "/images/projects/larkacer-nexus-studio/preview-1.webp"
+},
+{
   "id": "chronos",
   "title": "CHRONOS — Everything Through Time",
   "description": "Interactive historical exploration and student research with a custom rule-based narrative synthesis engine.",
@@ -410,30 +560,6 @@ export const projects: ProjectRecord[] = [
         '/images/projects/dental/dental-website-5.jpg',
       ],
       liveUrl: 'https://dental-clinic-website.larkacer-nexus.com',
-    },
-    {
-      id: 'elementary-school-website',
-      title: 'Elementary School Website',
-      description: 'Modern, warm elementary school website with enrollment showcase, campus features, bulletin board, and school visit booking.',
-      tech: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
-      features: ['Enrollment Showcase', 'Campus Features', 'Bulletin Board', 'School Visit Booking'],
-      color: '#22c55e',
-      category: 'Web',
-      client: 'Elementary School',
-      deployment: 'Web system',
-      statusLabel: 'Delivered',
-      status: 'completed',
-      image: '/images/projects/elementary/elementary-1.jpg',
-      fullDescription: 'A modern, warm elementary school website designed to showcase the school to prospective parents and students. Features include enrollment highlights, campus amenities showcase, a bulletin board for announcements, and online booking for school visits. Built with Next.js, Tailwind CSS, and Framer Motion for smooth animations.',
-      challenges: 'Creating a welcoming, trustworthy design that appeals to parents while clearly presenting enrollment information.',
-      outcome: 'Delivered as a live, responsive website for the school.',
-      images: [
-        '/images/projects/elementary/elementary-1.jpg',
-        '/images/projects/elementary/elementary-2.jpg',
-        '/images/projects/elementary/elementary-3.png',
-        '/images/projects/elementary/elementary-4.png',
-      ],
-      liveUrl: 'https://elementary-school-website.larkacer-nexus.com',
     },
 
     // ============ DESKTOP ============
